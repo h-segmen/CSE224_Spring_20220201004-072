@@ -1,0 +1,1729 @@
+library (ALU) {
+  comment                        : "";
+  delay_model                    : table_lookup;
+  simulation                     : false;
+  capacitive_load_unit (1,pF);
+  leakage_power_unit             : 1pW;
+  current_unit                   : "1A";
+  pulling_resistance_unit        : "1kohm";
+  time_unit                      : "1ns";
+  voltage_unit                   : "1v";
+  library_features(report_delay_calculation);
+
+  input_threshold_pct_rise : 50;
+  input_threshold_pct_fall : 50;
+  output_threshold_pct_rise : 50;
+  output_threshold_pct_fall : 50;
+  slew_lower_threshold_pct_rise : 20;
+  slew_lower_threshold_pct_fall : 20;
+  slew_upper_threshold_pct_rise : 80;
+  slew_upper_threshold_pct_fall : 80;
+  slew_derate_from_library : 1.0;
+
+
+  nom_process                    : 1.0;
+  nom_temperature                : 100.0;
+  nom_voltage                    : 1.60;
+
+  lu_table_template(template_1) {
+    variable_1 : total_output_net_capacitance;
+    index_1 ("0.00050,  0.00146,  0.00429,  0.01257,  0.03681,  0.10783,  0.31587");
+  }
+  type ("A") {
+    base_type : array;
+    data_type : bit;
+    bit_width : 8;
+    bit_from : 7;
+    bit_to : 0;
+  }
+  type ("B") {
+    base_type : array;
+    data_type : bit;
+    bit_width : 8;
+    bit_from : 7;
+    bit_to : 0;
+  }
+  type ("OP") {
+    base_type : array;
+    data_type : bit;
+    bit_width : 3;
+    bit_from : 2;
+    bit_to : 0;
+  }
+  type ("OUT") {
+    base_type : array;
+    data_type : bit;
+    bit_width : 8;
+    bit_from : 7;
+    bit_to : 0;
+  }
+
+  cell ("ALU") {
+    interface_timing : true;
+    bus("A") {
+      bus_type : A;
+      direction : input;
+      capacitance : 0.0000;
+    pin("A[7]") {
+      direction : input;
+      capacitance : 0.0027;
+    }
+    pin("A[6]") {
+      direction : input;
+      capacitance : 0.0030;
+    }
+    pin("A[5]") {
+      direction : input;
+      capacitance : 0.0025;
+    }
+    pin("A[4]") {
+      direction : input;
+      capacitance : 0.0024;
+    }
+    pin("A[3]") {
+      direction : input;
+      capacitance : 0.0031;
+    }
+    pin("A[2]") {
+      direction : input;
+      capacitance : 0.0025;
+    }
+    pin("A[1]") {
+      direction : input;
+      capacitance : 0.0030;
+    }
+    pin("A[0]") {
+      direction : input;
+      capacitance : 0.0035;
+    }
+    }
+    bus("B") {
+      bus_type : B;
+      direction : input;
+      capacitance : 0.0000;
+    pin("B[7]") {
+      direction : input;
+      capacitance : 0.0034;
+    }
+    pin("B[6]") {
+      direction : input;
+      capacitance : 0.0029;
+    }
+    pin("B[5]") {
+      direction : input;
+      capacitance : 0.0028;
+    }
+    pin("B[4]") {
+      direction : input;
+      capacitance : 0.0032;
+    }
+    pin("B[3]") {
+      direction : input;
+      capacitance : 0.0038;
+    }
+    pin("B[2]") {
+      direction : input;
+      capacitance : 0.0039;
+    }
+    pin("B[1]") {
+      direction : input;
+      capacitance : 0.0034;
+    }
+    pin("B[0]") {
+      direction : input;
+      capacitance : 0.0034;
+    }
+    }
+    bus("OP") {
+      bus_type : OP;
+      direction : input;
+      capacitance : 0.0000;
+    pin("OP[2]") {
+      direction : input;
+      capacitance : 0.0033;
+    }
+    pin("OP[1]") {
+      direction : input;
+      capacitance : 0.0032;
+    }
+    pin("OP[0]") {
+      direction : input;
+      capacitance : 0.0032;
+    }
+    }
+    bus("OUT") {
+      bus_type : OUT;
+      direction : output;
+      capacitance : 0.0000;
+    pin("OUT[7]") {
+      direction : output;
+      capacitance : 0.0014;
+      timing() {
+        related_pin : "A[7]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("2.83748,2.84275,2.85519,2.88485,2.96523,3.19786,3.89013");
+	}
+	rise_transition(template_1) {
+          values("0.01971,0.02396,0.03596,0.07223,0.18501,0.52159,1.50747");
+	}
+	cell_fall(template_1) {
+          values("3.27597,3.28067,3.29093,3.31201,3.35742,3.47359,3.80844");
+	}
+	fall_transition(template_1) {
+          values("0.01777,0.02067,0.02792,0.04568,0.09385,0.24227,0.69691");
+	}
+      }
+      timing() {
+        related_pin : "A[6]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("3.50290,3.50817,3.52061,3.55027,3.63065,3.86328,4.55555");
+	}
+	rise_transition(template_1) {
+          values("0.01971,0.02396,0.03596,0.07223,0.18501,0.52159,1.50747");
+	}
+	cell_fall(template_1) {
+          values("3.52978,3.53448,3.54474,3.56582,3.61123,3.72740,4.06225");
+	}
+	fall_transition(template_1) {
+          values("0.01777,0.02067,0.02792,0.04568,0.09385,0.24227,0.69691");
+	}
+      }
+      timing() {
+        related_pin : "A[5]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("3.03690,3.04218,3.05461,3.08427,3.16466,3.39729,4.08956");
+	}
+	rise_transition(template_1) {
+          values("0.01971,0.02396,0.03596,0.07223,0.18501,0.52159,1.50747");
+	}
+	cell_fall(template_1) {
+          values("3.20954,3.21424,3.22450,3.24558,3.29100,3.40717,3.74201");
+	}
+	fall_transition(template_1) {
+          values("0.01777,0.02067,0.02792,0.04568,0.09385,0.24227,0.69691");
+	}
+      }
+      timing() {
+        related_pin : "A[4]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("3.99213,3.99740,4.00984,4.03950,4.11988,4.35251,5.04479");
+	}
+	rise_transition(template_1) {
+          values("0.01971,0.02396,0.03596,0.07223,0.18501,0.52159,1.50747");
+	}
+	cell_fall(template_1) {
+          values("4.01901,4.02371,4.03397,4.05505,4.10046,4.21663,4.55148");
+	}
+	fall_transition(template_1) {
+          values("0.01777,0.02067,0.02792,0.04568,0.09385,0.24227,0.69691");
+	}
+      }
+      timing() {
+        related_pin : "A[3]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("5.72938,5.73465,5.74708,5.77675,5.85713,6.08976,6.78203");
+	}
+	rise_transition(template_1) {
+          values("0.01971,0.02396,0.03596,0.07223,0.18501,0.52159,1.50747");
+	}
+	cell_fall(template_1) {
+          values("5.80094,5.80565,5.81590,5.83699,5.88240,5.99857,6.33342");
+	}
+	fall_transition(template_1) {
+          values("0.01777,0.02067,0.02792,0.04568,0.09385,0.24227,0.69691");
+	}
+      }
+      timing() {
+        related_pin : "A[2]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("6.19324,6.19851,6.21095,6.24061,6.32099,6.55362,7.24590");
+	}
+	rise_transition(template_1) {
+          values("0.01971,0.02396,0.03596,0.07223,0.18501,0.52159,1.50747");
+	}
+	cell_fall(template_1) {
+          values("5.80263,5.80734,5.81759,5.83868,5.88409,6.00026,6.33511");
+	}
+	fall_transition(template_1) {
+          values("0.01777,0.02067,0.02792,0.04568,0.09385,0.24227,0.69691");
+	}
+      }
+      timing() {
+        related_pin : "A[1]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("5.63812,5.64339,5.65583,5.68549,5.76588,5.99850,6.69078");
+	}
+	rise_transition(template_1) {
+          values("0.01971,0.02396,0.03596,0.07223,0.18501,0.52159,1.50747");
+	}
+	cell_fall(template_1) {
+          values("5.58864,5.59335,5.60360,5.62468,5.67010,5.78627,6.12112");
+	}
+	fall_transition(template_1) {
+          values("0.01777,0.02067,0.02792,0.04568,0.09385,0.24227,0.69691");
+	}
+      }
+      timing() {
+        related_pin : "A[0]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("5.25136,5.25663,5.26907,5.29873,5.37912,5.61174,6.30402");
+	}
+	rise_transition(template_1) {
+          values("0.01971,0.02396,0.03596,0.07223,0.18501,0.52159,1.50747");
+	}
+	cell_fall(template_1) {
+          values("5.44969,5.45439,5.46465,5.48573,5.53114,5.64731,5.98216");
+	}
+	fall_transition(template_1) {
+          values("0.01777,0.02067,0.02792,0.04568,0.09385,0.24227,0.69691");
+	}
+      }
+      timing() {
+        related_pin : "B[7]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("2.87153,2.87680,2.88923,2.91890,2.99928,3.23191,3.92418");
+	}
+	rise_transition(template_1) {
+          values("0.01971,0.02396,0.03596,0.07223,0.18501,0.52159,1.50747");
+	}
+	cell_fall(template_1) {
+          values("3.28936,3.29407,3.30432,3.32541,3.37082,3.48699,3.82184");
+	}
+	fall_transition(template_1) {
+          values("0.01777,0.02067,0.02792,0.04568,0.09385,0.24227,0.69691");
+	}
+      }
+      timing() {
+        related_pin : "B[6]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("4.27436,4.27963,4.29206,4.32172,4.40211,4.63474,5.32701");
+	}
+	rise_transition(template_1) {
+          values("0.01971,0.02396,0.03596,0.07223,0.18501,0.52159,1.50747");
+	}
+	cell_fall(template_1) {
+          values("4.30123,4.30594,4.31619,4.33728,4.38269,4.49886,4.83371");
+	}
+	fall_transition(template_1) {
+          values("0.01777,0.02067,0.02792,0.04568,0.09385,0.24227,0.69691");
+	}
+      }
+      timing() {
+        related_pin : "B[5]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("5.02850,5.03378,5.04621,5.07587,5.15626,5.38889,6.08116");
+	}
+	rise_transition(template_1) {
+          values("0.01971,0.02396,0.03596,0.07223,0.18501,0.52159,1.50747");
+	}
+	cell_fall(template_1) {
+          values("5.05538,5.06009,5.07034,5.09143,5.13684,5.25301,5.58786");
+	}
+	fall_transition(template_1) {
+          values("0.01777,0.02067,0.02792,0.04568,0.09385,0.24227,0.69691");
+	}
+      }
+      timing() {
+        related_pin : "B[4]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("4.97214,4.97742,4.98985,5.01951,5.09990,5.33253,6.02480");
+	}
+	rise_transition(template_1) {
+          values("0.01971,0.02396,0.03596,0.07223,0.18501,0.52159,1.50747");
+	}
+	cell_fall(template_1) {
+          values("4.99902,5.00373,5.01398,5.03507,5.08048,5.19665,5.53150");
+	}
+	fall_transition(template_1) {
+          values("0.01777,0.02067,0.02792,0.04568,0.09385,0.24227,0.69691");
+	}
+      }
+      timing() {
+        related_pin : "B[3]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("5.55803,5.56331,5.57574,5.60540,5.68579,5.91842,6.61069");
+	}
+	rise_transition(template_1) {
+          values("0.01971,0.02396,0.03596,0.07223,0.18501,0.52159,1.50747");
+	}
+	cell_fall(template_1) {
+          values("5.58491,5.58962,5.59987,5.62096,5.66637,5.78254,6.11739");
+	}
+	fall_transition(template_1) {
+          values("0.01777,0.02067,0.02792,0.04568,0.09385,0.24227,0.69691");
+	}
+      }
+      timing() {
+        related_pin : "B[2]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("5.61948,5.62475,5.63718,5.66685,5.74723,5.97986,6.67213");
+	}
+	rise_transition(template_1) {
+          values("0.01971,0.02396,0.03596,0.07223,0.18501,0.52159,1.50747");
+	}
+	cell_fall(template_1) {
+          values("5.64636,5.65106,5.66132,5.68240,5.72781,5.84398,6.17883");
+	}
+	fall_transition(template_1) {
+          values("0.01777,0.02067,0.02792,0.04568,0.09385,0.24227,0.69691");
+	}
+      }
+      timing() {
+        related_pin : "B[1]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("6.13704,6.14231,6.15475,6.18441,6.26479,6.49742,7.18969");
+	}
+	rise_transition(template_1) {
+          values("0.01971,0.02396,0.03596,0.07223,0.18501,0.52159,1.50747");
+	}
+	cell_fall(template_1) {
+          values("6.16392,6.16862,6.17888,6.19996,6.24537,6.36154,6.69639");
+	}
+	fall_transition(template_1) {
+          values("0.01777,0.02067,0.02792,0.04568,0.09385,0.24227,0.69691");
+	}
+      }
+      timing() {
+        related_pin : "B[0]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("6.12254,6.12781,6.14024,6.16991,6.25029,6.48292,7.17519");
+	}
+	rise_transition(template_1) {
+          values("0.01971,0.02396,0.03596,0.07223,0.18501,0.52159,1.50747");
+	}
+	cell_fall(template_1) {
+          values("6.13000,6.13470,6.14496,6.16604,6.21145,6.32763,6.66247");
+	}
+	fall_transition(template_1) {
+          values("0.01777,0.02067,0.02792,0.04568,0.09385,0.24227,0.69691");
+	}
+      }
+      timing() {
+        related_pin : "OP[2]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("5.84634,5.85162,5.86405,5.89371,5.97410,6.20673,6.89900");
+	}
+	rise_transition(template_1) {
+          values("0.01971,0.02396,0.03596,0.07223,0.18501,0.52159,1.50747");
+	}
+	cell_fall(template_1) {
+          values("6.11154,6.11624,6.12650,6.14758,6.19300,6.30917,6.64401");
+	}
+	fall_transition(template_1) {
+          values("0.01777,0.02067,0.02792,0.04568,0.09385,0.24227,0.69691");
+	}
+      }
+      timing() {
+        related_pin : "OP[1]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("5.85933,5.86460,5.87704,5.90670,5.98708,6.21971,6.91199");
+	}
+	rise_transition(template_1) {
+          values("0.01971,0.02396,0.03596,0.07223,0.18501,0.52159,1.50747");
+	}
+	cell_fall(template_1) {
+          values("6.12452,6.12923,6.13948,6.16057,6.20598,6.32215,6.65700");
+	}
+	fall_transition(template_1) {
+          values("0.01777,0.02067,0.02792,0.04568,0.09385,0.24227,0.69691");
+	}
+      }
+      timing() {
+        related_pin : "OP[0]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("5.96102,5.96630,5.97873,6.00839,6.08878,6.32141,7.01368");
+	}
+	rise_transition(template_1) {
+          values("0.01971,0.02396,0.03596,0.07223,0.18501,0.52159,1.50747");
+	}
+	cell_fall(template_1) {
+          values("6.22622,6.23092,6.24118,6.26226,6.30767,6.42385,6.75869");
+	}
+	fall_transition(template_1) {
+          values("0.01777,0.02067,0.02792,0.04568,0.09385,0.24227,0.69691");
+	}
+      }
+    }
+    pin("OUT[6]") {
+      direction : output;
+      capacitance : 0.0007;
+      timing() {
+        related_pin : "A[6]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("2.99313,2.99773,3.00955,3.03747,3.11078,3.33396,4.04604");
+	}
+	rise_transition(template_1) {
+          values("0.02524,0.02836,0.03774,0.06622,0.16213,0.48204,1.50549");
+	}
+	cell_fall(template_1) {
+          values("3.72252,3.72651,3.73695,3.76003,3.81398,3.96648,4.44687");
+	}
+	fall_transition(template_1) {
+          values("0.02071,0.02320,0.03050,0.04990,0.10889,0.30674,0.94787");
+	}
+      }
+      timing() {
+        related_pin : "A[5]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("2.92857,2.93316,2.94499,2.97291,3.04622,3.26940,3.98148");
+	}
+	rise_transition(template_1) {
+          values("0.02524,0.02836,0.03774,0.06622,0.16213,0.48204,1.50549");
+	}
+	cell_fall(template_1) {
+          values("3.25652,3.26051,3.27096,3.29403,3.34798,3.50048,3.98088");
+	}
+	fall_transition(template_1) {
+          values("0.02071,0.02320,0.03050,0.04990,0.10889,0.30674,0.94787");
+	}
+      }
+      timing() {
+        related_pin : "A[4]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("3.54354,3.54814,3.55996,3.58788,3.66119,3.88437,4.59645");
+	}
+	rise_transition(template_1) {
+          values("0.02524,0.02836,0.03774,0.06622,0.16213,0.48204,1.50549");
+	}
+	cell_fall(template_1) {
+          values("4.21175,4.21574,4.22618,4.24926,4.30321,4.45571,4.93611");
+	}
+	fall_transition(template_1) {
+          values("0.02071,0.02320,0.03050,0.04990,0.10889,0.30674,0.94787");
+	}
+      }
+      timing() {
+        related_pin : "A[3]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("5.66505,5.66965,5.68147,5.70939,5.78270,6.00588,6.71796");
+	}
+	rise_transition(template_1) {
+          values("0.02524,0.02836,0.03774,0.06622,0.16213,0.48204,1.50549");
+	}
+	cell_fall(template_1) {
+          values("5.92899,5.93297,5.94342,5.96650,6.02044,6.17295,6.65334");
+	}
+	fall_transition(template_1) {
+          values("0.02071,0.02320,0.03050,0.04990,0.10889,0.30674,0.94787");
+	}
+      }
+      timing() {
+        related_pin : "A[2]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("5.95416,5.95876,5.97059,5.99851,6.07182,6.29500,7.00708");
+	}
+	rise_transition(template_1) {
+          values("0.02524,0.02836,0.03774,0.06622,0.16213,0.48204,1.50549");
+	}
+	cell_fall(template_1) {
+          values("6.39285,6.39684,6.40728,6.43036,6.48431,6.63681,7.11720");
+	}
+	fall_transition(template_1) {
+          values("0.02071,0.02320,0.03050,0.04990,0.10889,0.30674,0.94787");
+	}
+      }
+      timing() {
+        related_pin : "A[1]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("5.39905,5.40365,5.41547,5.44339,5.51670,5.73988,6.45196");
+	}
+	rise_transition(template_1) {
+          values("0.02524,0.02836,0.03774,0.06622,0.16213,0.48204,1.50549");
+	}
+	cell_fall(template_1) {
+          values("5.83773,5.84172,5.85217,5.87524,5.92919,6.08169,6.56209");
+	}
+	fall_transition(template_1) {
+          values("0.02071,0.02320,0.03050,0.04990,0.10889,0.30674,0.94787");
+	}
+      }
+      timing() {
+        related_pin : "A[0]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("5.16871,5.17331,5.18514,5.21306,5.28636,5.50955,6.22162");
+	}
+	rise_transition(template_1) {
+          values("0.02524,0.02836,0.03774,0.06622,0.16213,0.48204,1.50549");
+	}
+	cell_fall(template_1) {
+          values("5.45097,5.45496,5.46541,5.48848,5.54243,5.69493,6.17533");
+	}
+	fall_transition(template_1) {
+          values("0.02071,0.02320,0.03050,0.04990,0.10889,0.30674,0.94787");
+	}
+      }
+      timing() {
+        related_pin : "B[6]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("3.53851,3.54311,3.55493,3.58285,3.65616,3.87934,4.59142");
+	}
+	rise_transition(template_1) {
+          values("0.02524,0.02836,0.03774,0.06622,0.16213,0.48204,1.50549");
+	}
+	cell_fall(template_1) {
+          values("4.49398,4.49796,4.50841,4.53149,4.58543,4.73794,5.21833");
+	}
+	fall_transition(template_1) {
+          values("0.02071,0.02320,0.03050,0.04990,0.10889,0.30674,0.94787");
+	}
+      }
+      timing() {
+        related_pin : "B[5]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("4.29265,4.29725,4.30908,4.33700,4.41031,4.63349,5.34556");
+	}
+	rise_transition(template_1) {
+          values("0.02524,0.02836,0.03774,0.06622,0.16213,0.48204,1.50549");
+	}
+	cell_fall(template_1) {
+          values("5.24812,5.25211,5.26256,5.28563,5.33958,5.49208,5.97248");
+	}
+	fall_transition(template_1) {
+          values("0.02071,0.02320,0.03050,0.04990,0.10889,0.30674,0.94787");
+	}
+      }
+      timing() {
+        related_pin : "B[4]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("4.23629,4.24089,4.25272,4.28064,4.35395,4.57713,5.28920");
+	}
+	rise_transition(template_1) {
+          values("0.02524,0.02836,0.03774,0.06622,0.16213,0.48204,1.50549");
+	}
+	cell_fall(template_1) {
+          values("5.19176,5.19575,5.20620,5.22927,5.28322,5.43572,5.91612");
+	}
+	fall_transition(template_1) {
+          values("0.02071,0.02320,0.03050,0.04990,0.10889,0.30674,0.94787");
+	}
+      }
+      timing() {
+        related_pin : "B[3]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("4.82218,4.82678,4.83861,4.86653,4.93984,5.16302,5.87509");
+	}
+	rise_transition(template_1) {
+          values("0.02524,0.02836,0.03774,0.06622,0.16213,0.48204,1.50549");
+	}
+	cell_fall(template_1) {
+          values("5.77765,5.78164,5.79209,5.81516,5.86911,6.02162,6.50201");
+	}
+	fall_transition(template_1) {
+          values("0.02071,0.02320,0.03050,0.04990,0.10889,0.30674,0.94787");
+	}
+      }
+      timing() {
+        related_pin : "B[2]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("5.37616,5.38076,5.39258,5.42050,5.49381,5.71699,6.42907");
+	}
+	rise_transition(template_1) {
+          values("0.02524,0.02836,0.03774,0.06622,0.16213,0.48204,1.50549");
+	}
+	cell_fall(template_1) {
+          values("5.83910,5.84308,5.85353,5.87661,5.93055,6.08306,6.56345");
+	}
+	fall_transition(template_1) {
+          values("0.02071,0.02320,0.03050,0.04990,0.10889,0.30674,0.94787");
+	}
+      }
+      timing() {
+        related_pin : "B[1]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("5.79532,5.79992,5.81175,5.83966,5.91297,6.13616,6.84823");
+	}
+	rise_transition(template_1) {
+          values("0.02524,0.02836,0.03774,0.06622,0.16213,0.48204,1.50549");
+	}
+	cell_fall(template_1) {
+          values("6.35666,6.36065,6.37109,6.39417,6.44812,6.60062,7.08101");
+	}
+	fall_transition(template_1) {
+          values("0.02071,0.02320,0.03050,0.04990,0.10889,0.30674,0.94787");
+	}
+      }
+      timing() {
+        related_pin : "B[0]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("5.88346,5.88806,5.89989,5.92781,6.00112,6.22430,6.93637");
+	}
+	rise_transition(template_1) {
+          values("0.02524,0.02836,0.03774,0.06622,0.16213,0.48204,1.50549");
+	}
+	cell_fall(template_1) {
+          values("6.32274,6.32673,6.33718,6.36025,6.41420,6.56670,7.04710");
+	}
+	fall_transition(template_1) {
+          values("0.02071,0.02320,0.03050,0.04990,0.10889,0.30674,0.94787");
+	}
+      }
+      timing() {
+        related_pin : "OP[2]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("5.83056,5.83516,5.84699,5.87491,5.94822,6.17140,6.88347");
+	}
+	rise_transition(template_1) {
+          values("0.02524,0.02836,0.03774,0.06622,0.16213,0.48204,1.50549");
+	}
+	cell_fall(template_1) {
+          values("6.06596,6.06995,6.08040,6.10347,6.15742,6.30993,6.79032");
+	}
+	fall_transition(template_1) {
+          values("0.02071,0.02320,0.03050,0.04990,0.10889,0.30674,0.94787");
+	}
+      }
+      timing() {
+        related_pin : "OP[1]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("5.84355,5.84815,5.85997,5.88789,5.96120,6.18438,6.89646");
+	}
+	rise_transition(template_1) {
+          values("0.02524,0.02836,0.03774,0.06622,0.16213,0.48204,1.50549");
+	}
+	cell_fall(template_1) {
+          values("6.07895,6.08294,6.09338,6.11646,6.17041,6.32291,6.80331");
+	}
+	fall_transition(template_1) {
+          values("0.02071,0.02320,0.03050,0.04990,0.10889,0.30674,0.94787");
+	}
+      }
+      timing() {
+        related_pin : "OP[0]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("5.94524,5.94984,5.96167,5.98959,6.06290,6.28608,6.99815");
+	}
+	rise_transition(template_1) {
+          values("0.02524,0.02836,0.03774,0.06622,0.16213,0.48204,1.50549");
+	}
+	cell_fall(template_1) {
+          values("6.18064,6.18463,6.19508,6.21815,6.27210,6.42460,6.90500");
+	}
+	fall_transition(template_1) {
+          values("0.02071,0.02320,0.03050,0.04990,0.10889,0.30674,0.94787");
+	}
+      }
+    }
+    pin("OUT[5]") {
+      direction : output;
+      capacitance : 0.0008;
+      timing() {
+        related_pin : "A[5]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("2.77381,2.77883,2.79086,2.82027,2.90078,3.13356,3.82371");
+	}
+	rise_transition(template_1) {
+          values("0.01769,0.02206,0.03443,0.07142,0.18466,0.52108,1.50771");
+	}
+	cell_fall(template_1) {
+          values("3.31004,3.31486,3.32512,3.34621,3.39157,3.50771,3.84231");
+	}
+	fall_transition(template_1) {
+          values("0.01779,0.02061,0.02791,0.04570,0.09385,0.24221,0.69581");
+	}
+      }
+      timing() {
+        related_pin : "A[4]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("3.19135,3.19636,3.20839,3.23780,3.31831,3.55110,4.24124");
+	}
+	rise_transition(template_1) {
+          values("0.01769,0.02206,0.03443,0.07142,0.18466,0.52108,1.50771");
+	}
+	cell_fall(template_1) {
+          values("3.54992,3.55474,3.56500,3.58609,3.63145,3.74759,4.08219");
+	}
+	fall_transition(template_1) {
+          values("0.01779,0.02061,0.02791,0.04570,0.09385,0.24221,0.69581");
+	}
+      }
+      timing() {
+        related_pin : "A[3]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("5.67202,5.67703,5.68906,5.71847,5.79898,6.03177,6.72191");
+	}
+	rise_transition(template_1) {
+          values("0.01769,0.02206,0.03443,0.07142,0.18466,0.52108,1.50771");
+	}
+	cell_fall(template_1) {
+          values("5.66126,5.66607,5.67634,5.69742,5.74278,5.85893,6.19352");
+	}
+	fall_transition(template_1) {
+          values("0.01779,0.02061,0.02791,0.04570,0.09385,0.24221,0.69581");
+	}
+      }
+      timing() {
+        related_pin : "A[2]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("5.92249,5.92750,5.93953,5.96895,6.04945,6.28224,6.97239");
+	}
+	rise_transition(template_1) {
+          values("0.01769,0.02206,0.03443,0.07142,0.18466,0.52108,1.50771");
+	}
+	cell_fall(template_1) {
+          values("5.89309,5.89790,5.90817,5.92925,5.97461,6.09075,6.42535");
+	}
+	fall_transition(template_1) {
+          values("0.01779,0.02061,0.02791,0.04570,0.09385,0.24221,0.69581");
+	}
+      }
+      timing() {
+        related_pin : "A[1]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("5.36737,5.37239,5.38441,5.41383,5.49433,5.72712,6.41727");
+	}
+	rise_transition(template_1) {
+          values("0.01769,0.02206,0.03443,0.07142,0.18466,0.52108,1.50771");
+	}
+	cell_fall(template_1) {
+          values("5.33797,5.34279,5.35305,5.37414,5.41950,5.53564,5.87024");
+	}
+	fall_transition(template_1) {
+          values("0.01779,0.02061,0.02791,0.04570,0.09385,0.24221,0.69581");
+	}
+      }
+      timing() {
+        related_pin : "A[0]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("4.98061,4.98563,4.99765,5.02707,5.10757,5.34036,6.03051");
+	}
+	rise_transition(template_1) {
+          values("0.01769,0.02206,0.03443,0.07142,0.18466,0.52108,1.50771");
+	}
+	cell_fall(template_1) {
+          values("5.12285,5.12767,5.13793,5.15902,5.20438,5.32052,5.65512");
+	}
+	fall_transition(template_1) {
+          values("0.01779,0.02061,0.02791,0.04570,0.09385,0.24221,0.69581");
+	}
+      }
+      timing() {
+        related_pin : "B[5]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("3.38528,3.39029,3.40232,3.43174,3.51224,3.74503,4.43518");
+	}
+	rise_transition(template_1) {
+          values("0.01769,0.02206,0.03443,0.07142,0.18466,0.52108,1.50771");
+	}
+	cell_fall(template_1) {
+          values("3.79127,3.79609,3.80635,3.82744,3.87280,3.98894,4.32354");
+	}
+	fall_transition(template_1) {
+          values("0.01779,0.02061,0.02791,0.04570,0.09385,0.24221,0.69581");
+	}
+      }
+      timing() {
+        related_pin : "B[4]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("3.79221,3.79722,3.80925,3.83867,3.91917,4.15196,4.84211");
+	}
+	rise_transition(template_1) {
+          values("0.01769,0.02206,0.03443,0.07142,0.18466,0.52108,1.50771");
+	}
+	cell_fall(template_1) {
+          values("4.18725,4.19206,4.20233,4.22341,4.26877,4.38491,4.71951");
+	}
+	fall_transition(template_1) {
+          values("0.01779,0.02061,0.02791,0.04570,0.09385,0.24221,0.69581");
+	}
+      }
+      timing() {
+        related_pin : "B[3]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("4.81714,4.82216,4.83418,4.86360,4.94411,5.17689,5.86704");
+	}
+	rise_transition(template_1) {
+          values("0.01769,0.02206,0.03443,0.07142,0.18466,0.52108,1.50771");
+	}
+	cell_fall(template_1) {
+          values("4.89717,4.90198,4.91225,4.93333,4.97869,5.09484,5.42944");
+	}
+	fall_transition(template_1) {
+          values("0.01779,0.02061,0.02791,0.04570,0.09385,0.24221,0.69581");
+	}
+      }
+      timing() {
+        related_pin : "B[2]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("5.46132,5.46633,5.47836,5.50777,5.58828,5.82107,6.51121");
+	}
+	rise_transition(template_1) {
+          values("0.01769,0.02206,0.03443,0.07142,0.18466,0.52108,1.50771");
+	}
+	cell_fall(template_1) {
+          values("5.68002,5.68484,5.69511,5.71619,5.76155,5.87769,6.21229");
+	}
+	fall_transition(template_1) {
+          values("0.01779,0.02061,0.02791,0.04570,0.09385,0.24221,0.69581");
+	}
+      }
+      timing() {
+        related_pin : "B[1]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("5.76827,5.77329,5.78532,5.81473,5.89524,6.12802,6.81817");
+	}
+	rise_transition(template_1) {
+          values("0.01769,0.02206,0.03443,0.07142,0.18466,0.52108,1.50771");
+	}
+	cell_fall(template_1) {
+          values("5.86362,5.86844,5.87870,5.89979,5.94515,6.06129,6.39589");
+	}
+	fall_transition(template_1) {
+          values("0.01779,0.02061,0.02791,0.04570,0.09385,0.24221,0.69581");
+	}
+      }
+      timing() {
+        related_pin : "B[0]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("5.85179,5.85680,5.86883,5.89824,5.97875,6.21154,6.90168");
+	}
+	rise_transition(template_1) {
+          values("0.01769,0.02206,0.03443,0.07142,0.18466,0.52108,1.50771");
+	}
+	cell_fall(template_1) {
+          values("5.82239,5.82720,5.83747,5.85855,5.90391,6.02005,6.35465");
+	}
+	fall_transition(template_1) {
+          values("0.01779,0.02061,0.02791,0.04570,0.09385,0.24221,0.69581");
+	}
+      }
+      timing() {
+        related_pin : "OP[2]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("5.30053,5.30554,5.31757,5.34699,5.42749,5.66028,6.35043");
+	}
+	rise_transition(template_1) {
+          values("0.01769,0.02206,0.03443,0.07142,0.18466,0.52108,1.50771");
+	}
+	cell_fall(template_1) {
+          values("5.78471,5.78952,5.79979,5.82087,5.86623,5.98237,6.31697");
+	}
+	fall_transition(template_1) {
+          values("0.01779,0.02061,0.02791,0.04570,0.09385,0.24221,0.69581");
+	}
+      }
+      timing() {
+        related_pin : "OP[1]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("5.31352,5.31853,5.33056,5.35997,5.44048,5.67326,6.36341");
+	}
+	rise_transition(template_1) {
+          values("0.01769,0.02206,0.03443,0.07142,0.18466,0.52108,1.50771");
+	}
+	cell_fall(template_1) {
+          values("5.79769,5.80250,5.81277,5.83385,5.87921,5.99536,6.32996");
+	}
+	fall_transition(template_1) {
+          values("0.01779,0.02061,0.02791,0.04570,0.09385,0.24221,0.69581");
+	}
+      }
+      timing() {
+        related_pin : "OP[0]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("5.41521,5.42022,5.43225,5.46167,5.54217,5.77496,6.46511");
+	}
+	rise_transition(template_1) {
+          values("0.01769,0.02206,0.03443,0.07142,0.18466,0.52108,1.50771");
+	}
+	cell_fall(template_1) {
+          values("5.89938,5.90420,5.91446,5.93555,5.98091,6.09705,6.43165");
+	}
+	fall_transition(template_1) {
+          values("0.01779,0.02061,0.02791,0.04570,0.09385,0.24221,0.69581");
+	}
+      }
+    }
+    pin("OUT[4]") {
+      direction : output;
+      capacitance : 0.0006;
+      timing() {
+        related_pin : "A[4]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("3.50982,3.51543,3.52845,3.55856,3.63886,3.87235,4.55757");
+	}
+	rise_transition(template_1) {
+          values("0.02192,0.02605,0.03773,0.07321,0.18504,0.52214,1.50642");
+	}
+	cell_fall(template_1) {
+          values("4.07048,4.07509,4.08534,4.10642,4.15188,4.26808,4.60313");
+	}
+	fall_transition(template_1) {
+          values("0.01775,0.02072,0.02792,0.04566,0.09385,0.24232,0.69785");
+	}
+      }
+      timing() {
+        related_pin : "A[3]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("5.63764,5.64325,5.65627,5.68638,5.76668,6.00017,6.68539");
+	}
+	rise_transition(template_1) {
+          values("0.02192,0.02605,0.03773,0.07321,0.18504,0.52214,1.50642");
+	}
+	cell_fall(template_1) {
+          values("6.14342,6.14803,6.15827,6.17936,6.22481,6.34101,6.67607");
+	}
+	fall_transition(template_1) {
+          values("0.01775,0.02072,0.02792,0.04566,0.09385,0.24232,0.69785");
+	}
+      }
+      timing() {
+        related_pin : "A[2]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("5.94260,5.94821,5.96123,5.99134,6.07164,6.30513,6.99035");
+	}
+	rise_transition(template_1) {
+          values("0.02192,0.02605,0.03773,0.07321,0.18504,0.52214,1.50642");
+	}
+	cell_fall(template_1) {
+          values("6.39389,6.39850,6.40875,6.42983,6.47529,6.59148,6.92654");
+	}
+	fall_transition(template_1) {
+          values("0.01775,0.02072,0.02792,0.04566,0.09385,0.24232,0.69785");
+	}
+      }
+      timing() {
+        related_pin : "A[1]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("5.38748,5.39309,5.40611,5.43622,5.51652,5.75001,6.43523");
+	}
+	rise_transition(template_1) {
+          values("0.02192,0.02605,0.03773,0.07321,0.18504,0.52214,1.50642");
+	}
+	cell_fall(template_1) {
+          values("5.83877,5.84338,5.85363,5.87471,5.92017,6.03637,6.37142");
+	}
+	fall_transition(template_1) {
+          values("0.01775,0.02072,0.02792,0.04566,0.09385,0.24232,0.69785");
+	}
+      }
+      timing() {
+        related_pin : "A[0]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("5.13499,5.14060,5.15362,5.18373,5.26403,5.49752,6.18274");
+	}
+	rise_transition(template_1) {
+          values("0.02192,0.02605,0.03773,0.07321,0.18504,0.52214,1.50642");
+	}
+	cell_fall(template_1) {
+          values("5.65566,5.66027,5.67052,5.69160,5.73706,5.85326,6.18831");
+	}
+	fall_transition(template_1) {
+          values("0.01775,0.02072,0.02792,0.04566,0.09385,0.24232,0.69785");
+	}
+      }
+      timing() {
+        related_pin : "B[4]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("3.96124,3.96685,3.97987,4.00998,4.09028,4.32377,5.00899");
+	}
+	rise_transition(template_1) {
+          values("0.02192,0.02605,0.03773,0.07321,0.18504,0.52214,1.50642");
+	}
+	cell_fall(template_1) {
+          values("4.67135,4.67596,4.68621,4.70729,4.75275,4.86894,5.20400");
+	}
+	fall_transition(template_1) {
+          values("0.01775,0.02072,0.02792,0.04566,0.09385,0.24232,0.69785");
+	}
+      }
+      timing() {
+        related_pin : "B[3]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("4.62168,4.62729,4.64031,4.67042,4.75072,4.98421,5.66943");
+	}
+	rise_transition(template_1) {
+          values("0.02192,0.02605,0.03773,0.07321,0.18504,0.52214,1.50642");
+	}
+	cell_fall(template_1) {
+          values("5.30653,5.31115,5.32139,5.34248,5.38793,5.50413,5.83919");
+	}
+	fall_transition(template_1) {
+          values("0.01775,0.02072,0.02792,0.04566,0.09385,0.24232,0.69785");
+	}
+      }
+      timing() {
+        related_pin : "B[2]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("5.31443,5.32004,5.33306,5.36316,5.44347,5.67696,6.36218");
+	}
+	rise_transition(template_1) {
+          values("0.02192,0.02605,0.03773,0.07321,0.18504,0.52214,1.50642");
+	}
+	cell_fall(template_1) {
+          values("5.81244,5.81705,5.82729,5.84838,5.89384,6.01003,6.34509");
+	}
+	fall_transition(template_1) {
+          values("0.01775,0.02072,0.02792,0.04566,0.09385,0.24232,0.69785");
+	}
+      }
+      timing() {
+        related_pin : "B[1]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("5.76160,5.76721,5.78023,5.81034,5.89064,6.12413,6.80935");
+	}
+	rise_transition(template_1) {
+          values("0.02192,0.02605,0.03773,0.07321,0.18504,0.52214,1.50642");
+	}
+	cell_fall(template_1) {
+          values("6.28227,6.28688,6.29713,6.31821,6.36367,6.47986,6.81492");
+	}
+	fall_transition(template_1) {
+          values("0.01775,0.02072,0.02792,0.04566,0.09385,0.24232,0.69785");
+	}
+      }
+      timing() {
+        related_pin : "B[0]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("5.87190,5.87751,5.89053,5.92063,6.00094,6.23443,6.91965");
+	}
+	rise_transition(template_1) {
+          values("0.02192,0.02605,0.03773,0.07321,0.18504,0.52214,1.50642");
+	}
+	cell_fall(template_1) {
+          values("6.32319,6.32780,6.33804,6.35913,6.40459,6.52078,6.85584");
+	}
+	fall_transition(template_1) {
+          values("0.01775,0.02072,0.02792,0.04566,0.09385,0.24232,0.69785");
+	}
+      }
+      timing() {
+        related_pin : "OP[2]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("5.79684,5.80245,5.81548,5.84558,5.92588,6.15937,6.84460");
+	}
+	rise_transition(template_1) {
+          values("0.02192,0.02605,0.03773,0.07321,0.18504,0.52214,1.50642");
+	}
+	cell_fall(template_1) {
+          values("6.31751,6.32213,6.33237,6.35346,6.39891,6.51511,6.85017");
+	}
+	fall_transition(template_1) {
+          values("0.01775,0.02072,0.02792,0.04566,0.09385,0.24232,0.69785");
+	}
+      }
+      timing() {
+        related_pin : "OP[1]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("5.80983,5.81544,5.82846,5.85856,5.93887,6.17236,6.85758");
+	}
+	rise_transition(template_1) {
+          values("0.02192,0.02605,0.03773,0.07321,0.18504,0.52214,1.50642");
+	}
+	cell_fall(template_1) {
+          values("6.33050,6.33511,6.34536,6.36644,6.41190,6.52809,6.86315");
+	}
+	fall_transition(template_1) {
+          values("0.01775,0.02072,0.02792,0.04566,0.09385,0.24232,0.69785");
+	}
+      }
+      timing() {
+        related_pin : "OP[0]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("5.91152,5.91713,5.93015,5.96026,6.04056,6.27405,6.95927");
+	}
+	rise_transition(template_1) {
+          values("0.02192,0.02605,0.03773,0.07321,0.18504,0.52214,1.50642");
+	}
+	cell_fall(template_1) {
+          values("6.43219,6.43681,6.44705,6.46814,6.51359,6.62979,6.96484");
+	}
+	fall_transition(template_1) {
+          values("0.01775,0.02072,0.02792,0.04566,0.09385,0.24232,0.69785");
+	}
+      }
+    }
+    pin("OUT[3]") {
+      direction : output;
+      capacitance : 0.0008;
+      timing() {
+        related_pin : "A[3]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("5.06456,5.06995,5.08258,5.11240,5.19275,5.42568,6.11555");
+	}
+	rise_transition(template_1) {
+          values("0.02046,0.02467,0.03656,0.07256,0.18502,0.52177,1.50711");
+	}
+	cell_fall(template_1) {
+          values("5.14225,5.14683,5.15708,5.17818,5.22368,5.33988,5.67506");
+	}
+	fall_transition(template_1) {
+          values("0.01781,0.02082,0.02798,0.04569,0.09387,0.24236,0.69819");
+	}
+      }
+      timing() {
+        related_pin : "A[2]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("5.36952,5.37491,5.38754,5.41735,5.49771,5.73063,6.42051");
+	}
+	rise_transition(template_1) {
+          values("0.02046,0.02467,0.03656,0.07256,0.18502,0.52177,1.50711");
+	}
+	cell_fall(template_1) {
+          values("5.44721,5.45178,5.46204,5.48314,5.52863,5.64483,5.98001");
+	}
+	fall_transition(template_1) {
+          values("0.01781,0.02082,0.02798,0.04569,0.09387,0.24236,0.69819");
+	}
+      }
+      timing() {
+        related_pin : "A[1]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("4.81440,4.81979,4.83243,4.86224,4.94259,5.17552,5.86539");
+	}
+	rise_transition(template_1) {
+          values("0.02046,0.02467,0.03656,0.07256,0.18502,0.52177,1.50711");
+	}
+	cell_fall(template_1) {
+          values("4.89378,4.89835,4.90861,4.92971,4.97520,5.09140,5.42658");
+	}
+	fall_transition(template_1) {
+          values("0.01781,0.02082,0.02798,0.04569,0.09387,0.24236,0.69819");
+	}
+      }
+      timing() {
+        related_pin : "A[0]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("4.62835,4.63374,4.64637,4.67619,4.75654,4.98946,5.67934");
+	}
+	rise_transition(template_1) {
+          values("0.02046,0.02467,0.03656,0.07256,0.18502,0.52177,1.50711");
+	}
+	cell_fall(template_1) {
+          values("4.75482,4.75940,4.76965,4.79075,4.83625,4.95245,5.28762");
+	}
+	fall_transition(template_1) {
+          values("0.01781,0.02082,0.02798,0.04569,0.09387,0.24236,0.69819");
+	}
+      }
+      timing() {
+        related_pin : "B[3]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("3.65225,3.65763,3.67027,3.70008,3.78044,4.01336,4.70323");
+	}
+	rise_transition(template_1) {
+          values("0.02046,0.02467,0.03656,0.07256,0.18502,0.52177,1.50711");
+	}
+	cell_fall(template_1) {
+          values("3.76567,3.77024,3.78050,3.80160,3.84709,3.96329,4.29847");
+	}
+	fall_transition(template_1) {
+          values("0.01781,0.02082,0.02798,0.04569,0.09387,0.24236,0.69819");
+	}
+      }
+      timing() {
+        related_pin : "B[2]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("4.74135,4.74673,4.75937,4.78918,4.86954,5.10246,5.79233");
+	}
+	rise_transition(template_1) {
+          values("0.02046,0.02467,0.03656,0.07256,0.18502,0.52177,1.50711");
+	}
+	cell_fall(template_1) {
+          values("4.83193,4.83650,4.84676,4.86786,4.91335,5.02955,5.36473");
+	}
+	fall_transition(template_1) {
+          values("0.01781,0.02082,0.02798,0.04569,0.09387,0.24236,0.69819");
+	}
+      }
+      timing() {
+        related_pin : "B[1]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("5.25496,5.26035,5.27298,5.30279,5.38315,5.61607,6.30594");
+	}
+	rise_transition(template_1) {
+          values("0.02046,0.02467,0.03656,0.07256,0.18502,0.52177,1.50711");
+	}
+	cell_fall(template_1) {
+          values("5.38143,5.38600,5.39626,5.41736,5.46285,5.57905,5.91423");
+	}
+	fall_transition(template_1) {
+          values("0.01781,0.02082,0.02798,0.04569,0.09387,0.24236,0.69819");
+	}
+      }
+      timing() {
+        related_pin : "B[0]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("5.29882,5.30420,5.31684,5.34665,5.42701,5.65993,6.34980");
+	}
+	rise_transition(template_1) {
+          values("0.02046,0.02467,0.03656,0.07256,0.18502,0.52177,1.50711");
+	}
+	cell_fall(template_1) {
+          values("5.37651,5.38108,5.39134,5.41244,5.45793,5.57413,5.90931");
+	}
+	fall_transition(template_1) {
+          values("0.01781,0.02082,0.02798,0.04569,0.09387,0.24236,0.69819");
+	}
+      }
+      timing() {
+        related_pin : "OP[2]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("5.29020,5.29559,5.30822,5.33804,5.41839,5.65132,6.34119");
+	}
+	rise_transition(template_1) {
+          values("0.02046,0.02467,0.03656,0.07256,0.18502,0.52177,1.50711");
+	}
+	cell_fall(template_1) {
+          values("5.41667,5.42125,5.43151,5.45261,5.49810,5.61430,5.94948");
+	}
+	fall_transition(template_1) {
+          values("0.01781,0.02082,0.02798,0.04569,0.09387,0.24236,0.69819");
+	}
+      }
+      timing() {
+        related_pin : "OP[1]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("5.30319,5.30857,5.32121,5.35102,5.43138,5.66430,6.35417");
+	}
+	rise_transition(template_1) {
+          values("0.02046,0.02467,0.03656,0.07256,0.18502,0.52177,1.50711");
+	}
+	cell_fall(template_1) {
+          values("5.42966,5.43423,5.44449,5.46559,5.51108,5.62728,5.96246");
+	}
+	fall_transition(template_1) {
+          values("0.01781,0.02082,0.02798,0.04569,0.09387,0.24236,0.69819");
+	}
+      }
+      timing() {
+        related_pin : "OP[0]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("5.40488,5.41027,5.42290,5.45272,5.53307,5.76599,6.45587");
+	}
+	rise_transition(template_1) {
+          values("0.02046,0.02467,0.03656,0.07256,0.18502,0.52177,1.50711");
+	}
+	cell_fall(template_1) {
+          values("5.53135,5.53593,5.54618,5.56729,5.61278,5.72898,6.06416");
+	}
+	fall_transition(template_1) {
+          values("0.01781,0.02082,0.02798,0.04569,0.09387,0.24236,0.69819");
+	}
+      }
+    }
+    pin("OUT[2]") {
+      direction : output;
+      capacitance : 0.0007;
+      timing() {
+        related_pin : "A[2]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("4.80227,4.80803,4.82132,4.85162,4.93189,5.16576,5.84782");
+	}
+	rise_transition(template_1) {
+          values("0.02292,0.02700,0.03852,0.07365,0.18505,0.52239,1.50595");
+	}
+	cell_fall(template_1) {
+          values("4.58585,4.59045,4.60075,4.62190,4.66742,4.78360,5.11882");
+	}
+	fall_transition(template_1) {
+          values("0.01801,0.02100,0.02815,0.04580,0.09393,0.24239,0.69785");
+	}
+      }
+      timing() {
+        related_pin : "A[1]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("4.52268,4.52844,4.54173,4.57203,4.65230,4.88617,5.56822");
+	}
+	rise_transition(template_1) {
+          values("0.02292,0.02700,0.03852,0.07365,0.18505,0.52239,1.50595");
+	}
+	cell_fall(template_1) {
+          values("4.30626,4.31086,4.32116,4.34231,4.38783,4.50401,4.83923");
+	}
+	fall_transition(template_1) {
+          values("0.01801,0.02100,0.02815,0.04580,0.09393,0.24239,0.69785");
+	}
+      }
+      timing() {
+        related_pin : "A[0]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("4.63785,4.64361,4.65690,4.68720,4.76747,5.00134,5.68339");
+	}
+	rise_transition(template_1) {
+          values("0.02292,0.02700,0.03852,0.07365,0.18505,0.52239,1.50595");
+	}
+	cell_fall(template_1) {
+          values("4.42143,4.42603,4.43633,4.45748,4.50300,4.61918,4.95440");
+	}
+	fall_transition(template_1) {
+          values("0.01801,0.02100,0.02815,0.04580,0.09393,0.24239,0.69785");
+	}
+      }
+      timing() {
+        related_pin : "B[2]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("4.38072,4.38648,4.39977,4.43007,4.51034,4.74422,5.42627");
+	}
+	rise_transition(template_1) {
+          values("0.02292,0.02700,0.03852,0.07365,0.18505,0.52239,1.50595");
+	}
+	cell_fall(template_1) {
+          values("4.60295,4.60755,4.61785,4.63900,4.68452,4.80070,5.13592");
+	}
+	fall_transition(template_1) {
+          values("0.01801,0.02100,0.02815,0.04580,0.09393,0.24239,0.69785");
+	}
+      }
+      timing() {
+        related_pin : "B[1]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("4.61630,4.62206,4.63535,4.66566,4.74592,4.97980,5.66185");
+	}
+	rise_transition(template_1) {
+          values("0.02292,0.02700,0.03852,0.07365,0.18505,0.52239,1.50595");
+	}
+	cell_fall(template_1) {
+          values("4.84663,4.85123,4.86153,4.88268,4.92820,5.04438,5.37960");
+	}
+	fall_transition(template_1) {
+          values("0.01801,0.02100,0.02815,0.04580,0.09393,0.24239,0.69785");
+	}
+      }
+      timing() {
+        related_pin : "B[0]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("4.80001,4.80577,4.81906,4.84936,4.92963,5.16350,5.84555");
+	}
+	rise_transition(template_1) {
+          values("0.02292,0.02700,0.03852,0.07365,0.18505,0.52239,1.50595");
+	}
+	cell_fall(template_1) {
+          values("4.81272,4.81731,4.82761,4.84876,4.89428,5.01046,5.34569");
+	}
+	fall_transition(template_1) {
+          values("0.01801,0.02100,0.02815,0.04580,0.09393,0.24239,0.69785");
+	}
+      }
+      timing() {
+        related_pin : "OP[2]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("4.50277,4.50853,4.52182,4.55212,4.63239,4.86627,5.54832");
+	}
+	rise_transition(template_1) {
+          values("0.02292,0.02700,0.03852,0.07365,0.18505,0.52239,1.50595");
+	}
+	cell_fall(template_1) {
+          values("4.92250,4.92710,4.93740,4.95854,5.00406,5.12025,5.45547");
+	}
+	fall_transition(template_1) {
+          values("0.01801,0.02100,0.02815,0.04580,0.09393,0.24239,0.69785");
+	}
+      }
+      timing() {
+        related_pin : "OP[1]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("4.57612,4.58188,4.59517,4.62548,4.70574,4.93962,5.62167");
+	}
+	rise_transition(template_1) {
+          values("0.02292,0.02700,0.03852,0.07365,0.18505,0.52239,1.50595");
+	}
+	cell_fall(template_1) {
+          values("4.93548,4.94008,4.95038,4.97153,5.01705,5.13323,5.46845");
+	}
+	fall_transition(template_1) {
+          values("0.01801,0.02100,0.02815,0.04580,0.09393,0.24239,0.69785");
+	}
+      }
+      timing() {
+        related_pin : "OP[0]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("4.58573,4.59149,4.60478,4.63508,4.71535,4.94923,5.63128");
+	}
+	rise_transition(template_1) {
+          values("0.02292,0.02700,0.03852,0.07365,0.18505,0.52239,1.50595");
+	}
+	cell_fall(template_1) {
+          values("5.17518,5.17978,5.19008,5.21123,5.25675,5.37293,5.70815");
+	}
+	fall_transition(template_1) {
+          values("0.01801,0.02100,0.02815,0.04580,0.09393,0.24239,0.69785");
+	}
+      }
+    }
+    pin("OUT[1]") {
+      direction : output;
+      capacitance : 0.0008;
+      timing() {
+        related_pin : "A[1]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("4.56348,4.56930,4.58269,4.61307,4.69332,4.92735,5.60818");
+	}
+	rise_transition(template_1) {
+          values("0.02330,0.02736,0.03882,0.07381,0.18506,0.52249,1.50577");
+	}
+	cell_fall(template_1) {
+          values("4.79310,4.79769,4.80798,4.82912,4.87464,4.99082,5.32603");
+	}
+	fall_transition(template_1) {
+          values("0.01797,0.02096,0.02812,0.04578,0.09392,0.24238,0.69792");
+	}
+      }
+      timing() {
+        related_pin : "A[0]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("4.42453,4.43035,4.44373,4.47412,4.55437,4.78839,5.46923");
+	}
+	rise_transition(template_1) {
+          values("0.02330,0.02736,0.03882,0.07381,0.18506,0.52249,1.50577");
+	}
+	cell_fall(template_1) {
+          values("4.89391,4.89850,4.90879,4.92993,4.97545,5.09163,5.42685");
+	}
+	fall_transition(template_1) {
+          values("0.01797,0.02096,0.02812,0.04578,0.09392,0.24238,0.69792");
+	}
+      }
+      timing() {
+        related_pin : "B[1]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("5.05114,5.05695,5.07034,5.10072,5.18098,5.41500,6.09584");
+	}
+	rise_transition(template_1) {
+          values("0.02330,0.02736,0.03882,0.07381,0.18506,0.52249,1.50577");
+	}
+	cell_fall(template_1) {
+          values("5.28075,5.28534,5.29564,5.31677,5.36229,5.47848,5.81369");
+	}
+	fall_transition(template_1) {
+          values("0.01797,0.02096,0.02812,0.04578,0.09392,0.24238,0.69792");
+	}
+      }
+      timing() {
+        related_pin : "B[0]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("4.92812,4.93393,4.94732,4.97770,5.05796,5.29198,5.97282");
+	}
+	rise_transition(template_1) {
+          values("0.02330,0.02736,0.03882,0.07381,0.18506,0.52249,1.50577");
+	}
+	cell_fall(template_1) {
+          values("5.15773,5.16232,5.17262,5.19375,5.23927,5.35546,5.69067");
+	}
+	fall_transition(template_1) {
+          values("0.01797,0.02096,0.02812,0.04578,0.09392,0.24238,0.69792");
+	}
+      }
+      timing() {
+        related_pin : "OP[2]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("5.08638,5.09220,5.10559,5.13597,5.21622,5.45024,6.13108");
+	}
+	rise_transition(template_1) {
+          values("0.02330,0.02736,0.03882,0.07381,0.18506,0.52249,1.50577");
+	}
+	cell_fall(template_1) {
+          values("5.34299,5.34758,5.35787,5.37901,5.42452,5.54071,5.87592");
+	}
+	fall_transition(template_1) {
+          values("0.01797,0.02096,0.02812,0.04578,0.09392,0.24238,0.69792");
+	}
+      }
+      timing() {
+        related_pin : "OP[1]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("5.09936,5.10518,5.11857,5.14895,5.22921,5.46323,6.14406");
+	}
+	rise_transition(template_1) {
+          values("0.02330,0.02736,0.03882,0.07381,0.18506,0.52249,1.50577");
+	}
+	cell_fall(template_1) {
+          values("5.35597,5.36056,5.37085,5.39199,5.43751,5.55369,5.88891");
+	}
+	fall_transition(template_1) {
+          values("0.01797,0.02096,0.02812,0.04578,0.09392,0.24238,0.69792");
+	}
+      }
+      timing() {
+        related_pin : "OP[0]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("5.20106,5.20688,5.22027,5.25065,5.33090,5.56492,6.24576");
+	}
+	rise_transition(template_1) {
+          values("0.02330,0.02736,0.03882,0.07381,0.18506,0.52249,1.50577");
+	}
+	cell_fall(template_1) {
+          values("5.45766,5.46226,5.47255,5.49369,5.53920,5.65539,5.99060");
+	}
+	fall_transition(template_1) {
+          values("0.01797,0.02096,0.02812,0.04578,0.09392,0.24238,0.69792");
+	}
+      }
+    }
+    pin("OUT[0]") {
+      direction : output;
+      capacitance : 0.0015;
+      timing() {
+        related_pin : "A[0]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("2.87793,2.88309,2.89532,2.92484,3.00525,3.23759,3.93222");
+	}
+	rise_transition(template_1) {
+          values("0.01897,0.02326,0.03537,0.07191,0.18500,0.52140,1.50781");
+	}
+	cell_fall(template_1) {
+          values("2.65716,2.66191,2.67217,2.69325,2.73865,2.85480,3.18954");
+	}
+	fall_transition(template_1) {
+          values("0.01778,0.02065,0.02792,0.04568,0.09385,0.24224,0.69644");
+	}
+      }
+      timing() {
+        related_pin : "B[0]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("2.57906,2.58422,2.59646,2.62597,2.70639,2.93873,3.63336");
+	}
+	rise_transition(template_1) {
+          values("0.01897,0.02326,0.03537,0.07191,0.18500,0.52140,1.50781");
+	}
+	cell_fall(template_1) {
+          values("2.52490,2.52966,2.53992,2.56100,2.60639,2.72255,3.05729");
+	}
+	fall_transition(template_1) {
+          values("0.01778,0.02065,0.02792,0.04568,0.09385,0.24224,0.69644");
+	}
+      }
+      timing() {
+        related_pin : "OP[2]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("2.64102,2.64618,2.65842,2.68794,2.76835,3.00069,3.69532");
+	}
+	rise_transition(template_1) {
+          values("0.01897,0.02326,0.03537,0.07191,0.18500,0.52140,1.50781");
+	}
+	cell_fall(template_1) {
+          values("2.38760,2.39235,2.40261,2.42369,2.46908,2.58524,2.91998");
+	}
+	fall_transition(template_1) {
+          values("0.01778,0.02065,0.02792,0.04568,0.09385,0.24224,0.69644");
+	}
+      }
+      timing() {
+        related_pin : "OP[1]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("3.46198,3.46714,3.47938,3.50890,3.58931,3.82165,4.51628");
+	}
+	rise_transition(template_1) {
+          values("0.01897,0.02326,0.03537,0.07191,0.18500,0.52140,1.50781");
+	}
+	cell_fall(template_1) {
+          values("2.84003,2.84479,2.85505,2.87613,2.92152,3.03768,3.37242");
+	}
+	fall_transition(template_1) {
+          values("0.01778,0.02065,0.02792,0.04568,0.09385,0.24224,0.69644");
+	}
+      }
+      timing() {
+        related_pin : "OP[0]";
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("3.51477,3.51993,3.53217,3.56169,3.64210,3.87444,4.56907");
+	}
+	rise_transition(template_1) {
+          values("0.01897,0.02326,0.03537,0.07191,0.18500,0.52140,1.50781");
+	}
+	cell_fall(template_1) {
+          values("2.89456,2.89931,2.90957,2.93065,2.97604,3.09220,3.42694");
+	}
+	fall_transition(template_1) {
+          values("0.01778,0.02065,0.02792,0.04568,0.09385,0.24224,0.69644");
+	}
+      }
+    }
+    }
+  }
+
+}
