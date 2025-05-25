@@ -1,0 +1,126 @@
+
+===========================================================================
+report_checks -unconstrained
+===========================================================================
+======================= Typical Corner ===================================
+
+Startpoint: _43_ (rising edge-triggered flip-flop clocked by core_clock)
+Endpoint: _44_ (rising edge-triggered flip-flop clocked by core_clock)
+Path Group: core_clock
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ _43_/CLK (sky130_fd_sc_hd__dfrtp_2)
+    10    0.03    0.11    0.45    0.45 v _43_/Q (sky130_fd_sc_hd__dfrtp_2)
+                                         count[1] (net)
+                  0.11    0.00    0.45 v _21_/A (sky130_fd_sc_hd__or4b_2)
+     2    0.01    0.11    0.70    1.15 v _21_/X (sky130_fd_sc_hd__or4b_2)
+                                         _09_ (net)
+                  0.11    0.00    1.15 v _24_/A (sky130_fd_sc_hd__and3_2)
+     1    0.00    0.04    0.19    1.34 v _24_/X (sky130_fd_sc_hd__and3_2)
+                                         _12_ (net)
+                  0.04    0.00    1.34 v _25_/A (sky130_fd_sc_hd__buf_1)
+     1    0.00    0.02    0.08    1.42 v _25_/X (sky130_fd_sc_hd__buf_1)
+                                         _02_ (net)
+                  0.02    0.00    1.42 v _44_/D (sky130_fd_sc_hd__dfrtp_2)
+                                  1.42   data arrival time
+
+                  0.00   10.00   10.00   clock core_clock (rise edge)
+                          0.00   10.00   clock network delay (ideal)
+                          0.00   10.00   clock reconvergence pessimism
+                                 10.00 ^ _44_/CLK (sky130_fd_sc_hd__dfrtp_2)
+                         -0.12    9.88   library setup time
+                                  9.88   data required time
+-----------------------------------------------------------------------------
+                                  9.88   data required time
+                                 -1.42   data arrival time
+-----------------------------------------------------------------------------
+                                  8.46   slack (MET)
+
+
+
+
+===========================================================================
+report_checks --slack_max -0.01
+============================================================================
+======================= Typical Corner ===================================
+
+No paths found.
+
+
+===========================================================================
+ report_check_types -max_slew -max_cap -max_fanout -violators
+============================================================================
+======================= Typical Corner ===================================
+
+
+max slew violations count Typical: 0
+max fanout violations count Typical: 0
+max cap violations count Typical: 0
+
+===========================================================================
+report_parasitic_annotation -report_unannotated
+============================================================================
+Found 33 unannotated drivers.
+ clk
+ rst
+ _18_/Y
+ _19_/Y
+ _20_/X
+ _21_/X
+ _22_/Y
+ _23_/X
+ _24_/X
+ _25_/X
+ _26_/Y
+ _27_/X
+ _28_/Y
+ _29_/Y
+ _30_/X
+ _31_/X
+ _32_/Y
+ _33_/Y
+ _34_/X
+ _35_/X
+ _36_/X
+ _37_/X
+ _38_/Y
+ _39_/Y
+ _40_/Y
+ _41_/Y
+ _42_/Q
+ _43_/Q
+ _44_/Q
+ _45_/Q
+ _46_/HI
+ _46_/LO
+ _47_/X
+Found 0 partially unannotated drivers.
+
+===========================================================================
+max slew violation count 0
+max fanout violation count 0
+max cap violation count 0
+============================================================================
+
+===========================================================================
+check_setup -verbose -unconstrained_endpoints -multiple_clock -no_clock -no_input_delay -loops -generated_clocks
+===========================================================================
+Warning: There is 1 input port missing set_input_delay.
+  rst
+Warning: There are 12 unconstrained endpoints.
+  an
+  count[0]
+  count[1]
+  count[2]
+  count[3]
+  seg[0]
+  seg[1]
+  seg[2]
+  seg[3]
+  seg[4]
+  seg[5]
+  seg[6]

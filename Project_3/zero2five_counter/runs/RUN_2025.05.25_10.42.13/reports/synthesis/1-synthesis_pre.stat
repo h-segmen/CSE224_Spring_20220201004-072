@@ -1,0 +1,22 @@
+
+49. Printing statistics.
+
+=== zero2five_counter ===
+
+   Number of wires:                 30
+   Number of wire bits:             42
+   Number of public wires:           5
+   Number of public wire bits:      14
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 38
+     $_ANDNOT_                      10
+     $_AND_                          3
+     $_DFF_PP0_                      4
+     $_NAND_                         1
+     $_NOR_                          3
+     $_OR_                          14
+     $_XNOR_                         1
+     $_XOR_                          2
+

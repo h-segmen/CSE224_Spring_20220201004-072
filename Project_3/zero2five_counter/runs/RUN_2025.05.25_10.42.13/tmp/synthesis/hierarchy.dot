@@ -1,0 +1,34 @@
+digraph "zero2five_counter" {
+label="zero2five_counter";
+rankdir="LR";
+remincross=true;
+n6 [ shape=octagon, label="seg", color="black", fontcolor="black" ];
+n7 [ shape=octagon, label="an", color="black", fontcolor="black" ];
+n8 [ shape=octagon, label="count", color="black", fontcolor="black" ];
+n9 [ shape=octagon, label="rst", color="black", fontcolor="black" ];
+n10 [ shape=octagon, label="clk", color="black", fontcolor="black" ];
+v0 [ label="1" ];
+c14 [ shape=record, label="{{<p11> A|<p12> B}|$3\n$add|{<p13> Y}}",  ];
+v1 [ label="4" ];
+c15 [ shape=record, label="{{<p11> A|<p12> B}|$2\n$eq|{<p13> Y}}",  ];
+p2 [shape=box, style=rounded, label="PROC $4\n/openlane/designs/zero2five_counter/src/zero2five_counter.v:23.5-34.8", ];
+x4 [ shape=record, style=rounded, label="<s0> 3:0 - 3:0 ", color="black", fontcolor="black" ];
+p3 [shape=box, style=rounded, label="PROC $1\n/openlane/designs/zero2five_counter/src/zero2five_counter.v:13.5-21.8", ];
+v5 [ label="1'0" ];
+x6 [shape=point, ];
+n10:e -> p3:w [color="black", fontcolor="black", label=""];
+c14:p13:e -> x4:s0:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+c15:p13:e -> p3:w [color="black", fontcolor="black", label=""];
+p2:e -> n6:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+x6:e -> n7:w [color="black", fontcolor="black", label=""];
+p3:e -> n8:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+n8:e -> c14:p11:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+n8:e -> c15:p11:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+n8:e -> p2:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+n8:e -> p3:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+n9:e -> p3:w [color="black", fontcolor="black", label=""];
+v0:e -> c14:p12:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+v1:e -> c15:p12:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+v5:e -> x6:w [color="black", fontcolor="black", label=""];
+x4:e -> p3:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+}
