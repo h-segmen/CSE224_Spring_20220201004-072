@@ -1,0 +1,1125 @@
+
+===========================================================================
+report_checks -unconstrained
+===========================================================================
+======================= Typical Corner ===================================
+
+Startpoint: B[0] (input port clocked by core_clock)
+Endpoint: result[23] (output port clocked by core_clock)
+Path Group: core_clock
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                          0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (propagated)
+                          2.50    2.50 v input external delay
+     1    0.00    0.00    0.00    2.50 v B[0] (in)
+                                         B[0] (net)
+                  0.00    0.00    2.50 v input41/A (sky130_fd_sc_hd__clkbuf_4)
+     3    0.01    0.03    0.11    2.61 v input41/X (sky130_fd_sc_hd__clkbuf_4)
+                                         net41 (net)
+                  0.03    0.00    2.61 v _5288_/A (sky130_fd_sc_hd__or4_4)
+     1    0.01    0.09    0.53    3.14 v _5288_/X (sky130_fd_sc_hd__or4_4)
+                                         _2197_ (net)
+                  0.09    0.00    3.14 v _5289_/A (sky130_fd_sc_hd__buf_6)
+    10    0.02    0.04    0.15    3.29 v _5289_/X (sky130_fd_sc_hd__buf_6)
+                                         _2198_ (net)
+                  0.04    0.00    3.29 v _5595_/B (sky130_fd_sc_hd__or3_4)
+     4    0.01    0.08    0.38    3.67 v _5595_/X (sky130_fd_sc_hd__or3_4)
+                                         _2492_ (net)
+                  0.08    0.00    3.67 v _5647_/A4 (sky130_fd_sc_hd__o41a_1)
+     1    0.01    0.09    0.36    4.03 v _5647_/X (sky130_fd_sc_hd__o41a_1)
+                                         _2541_ (net)
+                  0.09    0.00    4.03 v _5648_/B (sky130_fd_sc_hd__xor2_2)
+     3    0.02    0.25    0.25    4.28 ^ _5648_/X (sky130_fd_sc_hd__xor2_2)
+                                         _2542_ (net)
+                  0.25    0.00    4.28 ^ _5649_/B (sky130_fd_sc_hd__xnor2_2)
+     4    0.01    0.09    0.13    4.41 v _5649_/Y (sky130_fd_sc_hd__xnor2_2)
+                                         _2543_ (net)
+                  0.09    0.00    4.41 v _5677_/D (sky130_fd_sc_hd__or4_4)
+     2    0.01    0.09    0.44    4.85 v _5677_/X (sky130_fd_sc_hd__or4_4)
+                                         _2570_ (net)
+                  0.09    0.00    4.85 v _5678_/D (sky130_fd_sc_hd__or4_4)
+     1    0.00    0.08    0.42    5.27 v _5678_/X (sky130_fd_sc_hd__or4_4)
+                                         _2571_ (net)
+                  0.08    0.00    5.27 v _5679_/B2 (sky130_fd_sc_hd__o22a_4)
+     3    0.02    0.06    0.22    5.49 v _5679_/X (sky130_fd_sc_hd__o22a_4)
+                                         _2572_ (net)
+                  0.06    0.00    5.49 v _5686_/A1 (sky130_fd_sc_hd__a21o_1)
+     3    0.01    0.06    0.19    5.68 v _5686_/X (sky130_fd_sc_hd__a21o_1)
+                                         _2578_ (net)
+                  0.06    0.00    5.68 v _5710_/A1 (sky130_fd_sc_hd__o21bai_2)
+     3    0.02    0.21    0.22    5.90 ^ _5710_/Y (sky130_fd_sc_hd__o21bai_2)
+                                         _2601_ (net)
+                  0.21    0.00    5.90 ^ _5743_/A1 (sky130_fd_sc_hd__a21oi_2)
+     3    0.01    0.07    0.10    6.00 v _5743_/Y (sky130_fd_sc_hd__a21oi_2)
+                                         _2632_ (net)
+                  0.07    0.00    6.00 v _5770_/A1 (sky130_fd_sc_hd__o21a_1)
+     2    0.01    0.08    0.24    6.24 v _5770_/X (sky130_fd_sc_hd__o21a_1)
+                                         _2657_ (net)
+                  0.08    0.00    6.24 v _5778_/A2 (sky130_fd_sc_hd__o21a_1)
+     1    0.01    0.06    0.21    6.45 v _5778_/X (sky130_fd_sc_hd__o21a_1)
+                                         _2664_ (net)
+                  0.06    0.00    6.45 v _5779_/B (sky130_fd_sc_hd__xnor2_2)
+     1    0.01    0.08    0.16    6.61 v _5779_/Y (sky130_fd_sc_hd__xnor2_2)
+                                         _2665_ (net)
+                  0.08    0.00    6.61 v _5785_/A2 (sky130_fd_sc_hd__a21oi_4)
+     1    0.05    0.38    0.36    6.97 ^ _5785_/Y (sky130_fd_sc_hd__a21oi_4)
+                                         net187 (net)
+                  0.38    0.01    6.99 ^ wire207/A (sky130_fd_sc_hd__buf_12)
+     1    0.01    0.04    0.15    7.14 ^ wire207/X (sky130_fd_sc_hd__buf_12)
+                                         net207 (net)
+                  0.04    0.00    7.14 ^ wire206/A (sky130_fd_sc_hd__buf_12)
+     1    0.00    0.02    0.08    7.21 ^ wire206/X (sky130_fd_sc_hd__buf_12)
+                                         net206 (net)
+                  0.02    0.00    7.21 ^ output187/A (sky130_fd_sc_hd__buf_1)
+     1    0.00    0.02    0.06    7.27 ^ output187/X (sky130_fd_sc_hd__buf_1)
+                                         result[23] (net)
+                  0.02    0.00    7.27 ^ result[23] (out)
+                                  7.27   data arrival time
+
+                         10.00   10.00   clock core_clock (rise edge)
+                          0.00   10.00   clock network delay (propagated)
+                          0.00   10.00   clock reconvergence pessimism
+                         -2.50    7.50   output external delay
+                                  7.50   data required time
+-----------------------------------------------------------------------------
+                                  7.50   data required time
+                                 -7.27   data arrival time
+-----------------------------------------------------------------------------
+                                  0.23   slack (MET)
+
+
+
+
+===========================================================================
+report_checks --slack_max -0.01
+============================================================================
+======================= Typical Corner ===================================
+
+No paths found.
+
+
+===========================================================================
+ report_check_types -max_slew -max_cap -max_fanout -violators
+============================================================================
+======================= Typical Corner ===================================
+
+
+max slew violations count Typical: 0
+max fanout violations count Typical: 0
+max cap violations count Typical: 0
+
+===========================================================================
+report_parasitic_annotation -report_unannotated
+============================================================================
+Found 140 unannotated drivers.
+ clkload0/Y
+ clkload1/Y
+ clkload10/X
+ clkload100/Y
+ clkload101/Y
+ clkload102/Y
+ clkload103/Y
+ clkload104/Y
+ clkload105/Y
+ clkload106/Y
+ clkload107/Y
+ clkload108/Y
+ clkload109/Y
+ clkload11/Y
+ clkload110/Y
+ clkload111/X
+ clkload112/Y
+ clkload113/Y
+ clkload114/Y
+ clkload115/Y
+ clkload116/Y
+ clkload117/Y
+ clkload118/Y
+ clkload119/Y
+ clkload12/Y
+ clkload120/Y
+ clkload121/Y
+ clkload122/Y
+ clkload123/X
+ clkload124/Y
+ clkload125/Y
+ clkload126/Y
+ clkload127/Y
+ clkload128/Y
+ clkload129/Y
+ clkload13/Y
+ clkload130/X
+ clkload131/X
+ clkload132/Y
+ clkload133/Y
+ clkload134/Y
+ clkload135/Y
+ clkload136/Y
+ clkload137/Y
+ clkload138/Y
+ clkload14/Y
+ clkload15/Y
+ clkload16/Y
+ clkload17/Y
+ clkload18/Y
+ clkload19/Y
+ clkload2/Y
+ clkload20/Y
+ clkload21/Y
+ clkload22/X
+ clkload23/X
+ clkload24/X
+ clkload25/Y
+ clkload26/Y
+ clkload27/X
+ clkload28/Y
+ clkload29/Y
+ clkload3/Y
+ clkload30/Y
+ clkload31/Y
+ clkload32/Y
+ clkload33/Y
+ clkload34/Y
+ clkload35/Y
+ clkload36/Y
+ clkload37/Y
+ clkload38/Y
+ clkload39/Y
+ clkload4/Y
+ clkload40/Y
+ clkload41/X
+ clkload42/Y
+ clkload43/Y
+ clkload44/Y
+ clkload45/Y
+ clkload46/Y
+ clkload47/Y
+ clkload48/Y
+ clkload49/X
+ clkload5/Y
+ clkload50/Y
+ clkload51/X
+ clkload52/X
+ clkload53/Y
+ clkload54/Y
+ clkload55/Y
+ clkload56/Y
+ clkload57/Y
+ clkload58/Y
+ clkload59/Y
+ clkload6/Y
+ clkload60/X
+ clkload61/Y
+ clkload62/Y
+ clkload63/Y
+ clkload64/Y
+ clkload65/Y
+ clkload66/Y
+ clkload67/Y
+ clkload68/Y
+ clkload69/Y
+ clkload7/Y
+ clkload70/Y
+ clkload71/Y
+ clkload72/Y
+ clkload73/Y
+ clkload74/Y
+ clkload75/Y
+ clkload76/Y
+ clkload77/Y
+ clkload78/Y
+ clkload79/Y
+ clkload8/X
+ clkload80/X
+ clkload81/X
+ clkload82/Y
+ clkload83/X
+ clkload84/Y
+ clkload85/Y
+ clkload86/Y
+ clkload87/Y
+ clkload88/Y
+ clkload89/Y
+ clkload9/Y
+ clkload90/Y
+ clkload91/Y
+ clkload92/Y
+ clkload93/Y
+ clkload94/Y
+ clkload95/Y
+ clkload96/Y
+ clkload97/X
+ clkload98/Y
+ clkload99/Y
+ rebuffer8/X
+Found 857 partially unannotated drivers.
+ A1[0]
+ A1[1]
+ A1[2]
+ A1[3]
+ A2[0]
+ A2[1]
+ A2[2]
+ A2[3]
+ A3[0]
+ A3[1]
+ A3[4]
+ A[10]
+ A[14]
+ A[18]
+ A[2]
+ A[6]
+ B[10]
+ B[14]
+ B[22]
+ B[26]
+ B[2]
+ B[30]
+ B[3]
+ B[6]
+ CLK
+ WD3[17]
+ WD3[21]
+ WD3[25]
+ WD3[28]
+ WD3[29]
+ opcode[0]
+ opcode[1]
+ _4051_/Y
+ _4052_/X
+ _4053_/X
+ _4054_/X
+ _4055_/X
+ _4056_/X
+ _4059_/X
+ _4061_/X
+ _4063_/X
+ _4064_/X
+ _4066_/X
+ _4067_/X
+ _4069_/X
+ _4070_/X
+ _4074_/X
+ _4075_/X
+ _4077_/X
+ _4078_/X
+ _4080_/X
+ _4082_/X
+ _4083_/X
+ _4085_/X
+ _4086_/X
+ _4087_/X
+ _4088_/X
+ _4089_/X
+ _4090_/X
+ _4092_/X
+ _4093_/X
+ _4094_/X
+ _4096_/X
+ _4097_/X
+ _4099_/X
+ _4101_/X
+ _4102_/X
+ _4103_/X
+ _4113_/X
+ _4114_/X
+ _4115_/X
+ _4117_/X
+ _4118_/X
+ _4121_/X
+ _4122_/X
+ _4124_/X
+ _4130_/X
+ _4131_/X
+ _4132_/X
+ _4134_/X
+ _4135_/X
+ _4137_/X
+ _4140_/X
+ _4142_/X
+ _4143_/X
+ _4147_/X
+ _4150_/X
+ _4151_/X
+ _4152_/X
+ _4153_/X
+ _4154_/X
+ _4156_/X
+ _4159_/X
+ _4160_/X
+ _4161_/X
+ _4163_/X
+ _4164_/X
+ _4166_/X
+ _4175_/X
+ _4176_/X
+ _4181_/X
+ _4185_/X
+ _4187_/X
+ _4196_/X
+ _4197_/X
+ _4200_/X
+ _4218_/X
+ _4220_/X
+ _4225_/X
+ _4233_/X
+ _4262_/X
+ _4267_/X
+ _4276_/X
+ _4277_/X
+ _4283_/X
+ _4322_/X
+ _4323_/X
+ _4327_/X
+ _4328_/X
+ _4332_/X
+ _4338_/X
+ _4339_/X
+ _4341_/X
+ _4359_/X
+ _4369_/X
+ _4376_/X
+ _4378_/X
+ _4379_/X
+ _4402_/X
+ _4458_/X
+ _4491_/X
+ _4506_/X
+ _4507_/X
+ _4514_/X
+ _4518_/X
+ _4523_/X
+ _4538_/X
+ _4544_/X
+ _4555_/X
+ _4559_/X
+ _4566_/X
+ _4572_/X
+ _4596_/X
+ _4619_/X
+ _4626_/X
+ _4650_/X
+ _4653_/X
+ _4654_/X
+ _4655_/X
+ _4656_/X
+ _4657_/X
+ _4659_/X
+ _4660_/X
+ _4662_/X
+ _4663_/X
+ _4665_/X
+ _4666_/X
+ _4668_/X
+ _4670_/X
+ _4672_/X
+ _4673_/X
+ _4674_/X
+ _4675_/X
+ _4677_/X
+ _4678_/X
+ _4679_/X
+ _4680_/X
+ _4682_/X
+ _4683_/X
+ _4684_/X
+ _4686_/X
+ _4687_/X
+ _4688_/X
+ _4691_/X
+ _4692_/X
+ _4694_/X
+ _4696_/X
+ _4700_/X
+ _4701_/X
+ _4702_/X
+ _4704_/X
+ _4705_/X
+ _4707_/X
+ _4709_/X
+ _4712_/X
+ _4713_/X
+ _4715_/X
+ _4717_/X
+ _4719_/X
+ _4720_/X
+ _4722_/X
+ _4724_/X
+ _4725_/X
+ _4726_/X
+ _4728_/X
+ _4730_/X
+ _4731_/X
+ _4733_/X
+ _4734_/X
+ _4736_/X
+ _4738_/X
+ _4739_/X
+ _4742_/X
+ _4743_/X
+ _4745_/X
+ _4746_/X
+ _4751_/X
+ _4752_/X
+ _4755_/X
+ _4758_/X
+ _4759_/X
+ _4763_/X
+ _4769_/X
+ _4771_/X
+ _4776_/X
+ _4777_/X
+ _4781_/X
+ _4788_/X
+ _4789_/X
+ _4792_/X
+ _4795_/X
+ _4796_/X
+ _4798_/X
+ _4805_/X
+ _4806_/X
+ _4810_/X
+ _4811_/X
+ _4813_/X
+ _4815_/X
+ _4817_/X
+ _4823_/X
+ _4828_/X
+ _4831_/X
+ _4838_/X
+ _4845_/X
+ _4847_/X
+ _4853_/X
+ _4857_/X
+ _4861_/X
+ _4867_/X
+ _4875_/X
+ _4878_/X
+ _4892_/X
+ _4897_/X
+ _4898_/X
+ _4910_/X
+ _4918_/X
+ _4920_/X
+ _4924_/X
+ _4925_/X
+ _4926_/X
+ _4940_/X
+ _4941_/X
+ _4942_/X
+ _4954_/X
+ _4956_/X
+ _4961_/X
+ _4964_/X
+ _4970_/X
+ _4971_/X
+ _4973_/X
+ _4974_/X
+ _4986_/X
+ _4988_/X
+ _4989_/X
+ _4994_/X
+ _5003_/X
+ _5017_/X
+ _5031_/X
+ _5033_/X
+ _5049_/X
+ _5063_/X
+ _5074_/X
+ _5078_/X
+ _5079_/X
+ _5094_/X
+ _5095_/X
+ _5109_/X
+ _5114_/X
+ _5121_/X
+ _5124_/X
+ _5125_/X
+ _5141_/X
+ _5155_/X
+ _5170_/X
+ _5171_/X
+ _5175_/X
+ _5187_/X
+ _5201_/X
+ _5217_/X
+ _5218_/X
+ _5221_/X
+ _5222_/X
+ _5224_/X
+ _5225_/X
+ _5226_/X
+ _5229_/X
+ _5230_/X
+ _5231_/X
+ _5232_/X
+ _5233_/X
+ _5234_/X
+ _5235_/X
+ _5236_/X
+ _5237_/X
+ _5240_/X
+ _5241_/X
+ _5242_/Y
+ _5245_/X
+ _5261_/X
+ _5264_/Y
+ _5276_/X
+ _5280_/X
+ _5283_/X
+ _5284_/X
+ _5285_/X
+ _5289_/X
+ _5291_/X
+ _5292_/X
+ _5308_/Y
+ _5309_/X
+ _5314_/Y
+ _5328_/X
+ _5333_/X
+ _5334_/X
+ _5337_/X
+ _5338_/X
+ _5340_/X
+ _5344_/X
+ _5345_/X
+ _5352_/Y
+ _5354_/X
+ _5360_/X
+ _5362_/X
+ _5380_/Y
+ _5382_/X
+ _5383_/X
+ _5388_/X
+ _5393_/X
+ _5398_/Y
+ _5401_/X
+ _5425_/X
+ _5427_/X
+ _5441_/X
+ _5452_/Y
+ _5460_/X
+ _5466_/X
+ _5479_/Y
+ _5494_/Y
+ _5514_/X
+ _5516_/X
+ _5539_/X
+ _5540_/X
+ _5541_/X
+ _5542_/Y
+ _5556_/X
+ _5558_/X
+ _5561_/Y
+ _5564_/X
+ _5568_/X
+ _5576_/X
+ _5582_/X
+ _5588_/X
+ _5590_/X
+ _5593_/X
+ _5596_/X
+ _5601_/X
+ _5607_/X
+ _5609_/X
+ _5612_/X
+ _5616_/Y
+ _5626_/Y
+ _5633_/X
+ _5639_/X
+ _5642_/Y
+ _5643_/X
+ _5652_/X
+ _5658_/X
+ _5662_/X
+ _5663_/X
+ _5666_/X
+ _5667_/X
+ _5671_/X
+ _5673_/Y
+ _5675_/Y
+ _5678_/X
+ _5682_/X
+ _5697_/X
+ _5698_/X
+ _5701_/X
+ _5705_/X
+ _5712_/X
+ _5713_/X
+ _5714_/Y
+ _5724_/X
+ _5729_/X
+ _5731_/X
+ _5733_/X
+ _5743_/Y
+ _5754_/X
+ _5755_/X
+ _5759_/X
+ _5760_/X
+ _5761_/Y
+ _5772_/Y
+ _5781_/X
+ _5783_/X
+ _5789_/X
+ _5792_/X
+ _5793_/Y
+ _5801_/X
+ _5805_/Y
+ _5816_/X
+ _5817_/Y
+ _5823_/X
+ _5830_/X
+ _5831_/Y
+ _5835_/Y
+ _5841_/X
+ _5842_/X
+ _5843_/Y
+ _5846_/X
+ _5849_/X
+ _5851_/Y
+ _5855_/X
+ _5857_/X
+ _5859_/X
+ _5864_/Y
+ _5865_/X
+ _5880_/X
+ _5881_/X
+ _5886_/X
+ _5887_/X
+ _5895_/X
+ _5896_/X
+ _5906_/X
+ _5907_/Y
+ _5910_/Y
+ _5912_/Y
+ _5913_/X
+ _5934_/Y
+ _5938_/X
+ _5941_/X
+ _5947_/X
+ _5953_/X
+ _5954_/X
+ _5959_/X
+ _5962_/X
+ _5965_/X
+ _5966_/X
+ _5972_/X
+ _5976_/X
+ _5978_/X
+ _5981_/X
+ _5985_/X
+ _5994_/X
+ _5996_/X
+ _5997_/X
+ _6012_/X
+ _6015_/X
+ _6024_/X
+ _6029_/X
+ _6037_/X
+ _6059_/X
+ _6060_/X
+ _6066_/X
+ _6079_/X
+ _6108_/X
+ _6111_/X
+ _6117_/X
+ _6120_/X
+ _6123_/X
+ _6126_/X
+ _6129_/X
+ _6136_/X
+ _6138_/X
+ _6139_/X
+ _6142_/X
+ _6145_/X
+ _6149_/X
+ _6155_/X
+ _6157_/X
+ _6158_/X
+ _6160_/X
+ _6163_/X
+ _6170_/X
+ _6179_/X
+ _6180_/X
+ _6183_/X
+ _6194_/X
+ _6201_/Y
+ _6202_/X
+ _6213_/X
+ _6223_/X
+ _6244_/X
+ _6254_/X
+ _6265_/X
+ _6269_/X
+ _6270_/Y
+ _6271_/X
+ _6274_/X
+ _6292_/X
+ _6299_/X
+ _6313_/X
+ _6332_/X
+ _6340_/Y
+ _6341_/X
+ _6362_/X
+ _6373_/X
+ _6374_/X
+ _6383_/X
+ _6408_/Y
+ _6409_/X
+ _6416_/X
+ _6428_/X
+ _6430_/X
+ _6450_/X
+ _6451_/X
+ _6470_/X
+ _6476_/Y
+ _6477_/X
+ _6478_/X
+ _6497_/X
+ _6498_/X
+ _6505_/X
+ _6506_/X
+ _6519_/X
+ _6522_/X
+ _6530_/X
+ _6553_/X
+ _6567_/X
+ _6579_/X
+ _6584_/X
+ _6588_/X
+ _6591_/X
+ _6615_/X
+ _6618_/X
+ _6621_/X
+ _6624_/X
+ _6627_/X
+ _6630_/X
+ _6633_/X
+ _6639_/X
+ _6642_/X
+ _6645_/X
+ _6646_/X
+ _6647_/X
+ _6651_/X
+ _6652_/X
+ _6655_/X
+ _6664_/X
+ _6670_/X
+ _6673_/X
+ _6676_/X
+ _6677_/X
+ _6680_/X
+ _6707_/X
+ _6714_/X
+ _6735_/X
+ _6754_/X
+ _6756_/X
+ _6783_/X
+ _6786_/X
+ _6804_/X
+ _6809_/X
+ _6825_/X
+ _6826_/X
+ _6835_/X
+ _6844_/X
+ _6851_/X
+ _6865_/X
+ _6868_/X
+ _6872_/X
+ _6891_/X
+ _6893_/X
+ _6894_/X
+ _6907_/X
+ _6920_/X
+ _6962_/X
+ _6978_/X
+ _6988_/X
+ _7009_/X
+ _7030_/X
+ _7077_/X
+ _7098_/X
+ _7113_/X
+ _7124_/X
+ _7139_/X
+ _7145_/X
+ _7148_/X
+ _7150_/X
+ _7166_/X
+ _7169_/X
+ _7174_/X
+ _7175_/X
+ _7176_/X
+ _7192_/X
+ _7194_/X
+ _7205_/X
+ _7213_/X
+ _7222_/X
+ _7226_/X
+ _7230_/X
+ _7234_/X
+ _7241_/X
+ _7244_/X
+ _7245_/X
+ _7257_/X
+ _7259_/Y
+ _7281_/X
+ _7302_/X
+ _7328_/X
+ _7330_/X
+ _7349_/X
+ _7358_/X
+ _7370_/X
+ _7377_/X
+ _7396_/X
+ _7411_/X
+ _7417_/X
+ _7429_/X
+ _7438_/X
+ _7443_/X
+ _7448_/X
+ _7457_/X
+ _7464_/X
+ _7485_/X
+ _7486_/X
+ _7506_/X
+ _7553_/X
+ _7571_/X
+ _7574_/X
+ _7581_/X
+ _7601_/X
+ _7622_/X
+ _7642_/X
+ _7643_/X
+ _7669_/X
+ _7690_/X
+ _7708_/X
+ _7711_/X
+ _7733_/X
+ _7737_/X
+ _7742_/X
+ _7758_/X
+ _7768_/X
+ _7779_/X
+ _7790_/X
+ _7794_/X
+ _7810_/X
+ _7826_/X
+ _7843_/X
+ _7847_/X
+ _7873_/X
+ _7877_/X
+ _7880_/X
+ _7894_/X
+ _7915_/X
+ _7941_/X
+ _7958_/X
+ _7962_/X
+ _8009_/X
+ _8030_/X
+ _8051_/X
+ _8054_/X
+ _8064_/X
+ _8074_/X
+ _8077_/X
+ _8098_/X
+ _8107_/X
+ _8111_/X
+ _8119_/X
+ _8132_/X
+ _8152_/X
+ _8162_/X
+ _8173_/X
+ _8176_/X
+ _8208_/Q
+ _8269_/Q
+ _8277_/Q
+ _8333_/Q
+ _8369_/Q
+ _8455_/Q
+ _8464_/Q
+ _8497_/Q
+ _8529_/Q
+ _8559_/Q
+ _8732_/Q
+ _8879_/Q
+ _8881_/Q
+ _8943_/Q
+ _8945_/Q
+ _8977_/Q
+ _8987_/Q
+ _9012_/Q
+ _9140_/Q
+ _9172_/Q
+ _9201_/Q
+ clkbuf_0_CLK/X
+ clkbuf_4_0_0_CLK/X
+ clkbuf_4_10_0_CLK/X
+ clkbuf_4_11_0_CLK/X
+ clkbuf_4_12_0_CLK/X
+ clkbuf_4_13_0_CLK/X
+ clkbuf_4_14_0_CLK/X
+ clkbuf_4_15_0_CLK/X
+ clkbuf_4_1_0_CLK/X
+ clkbuf_4_2_0_CLK/X
+ clkbuf_4_3_0_CLK/X
+ clkbuf_4_4_0_CLK/X
+ clkbuf_4_5_0_CLK/X
+ clkbuf_4_6_0_CLK/X
+ clkbuf_4_7_0_CLK/X
+ clkbuf_4_8_0_CLK/X
+ clkbuf_4_9_0_CLK/X
+ clkbuf_leaf_0_CLK/X
+ clkbuf_leaf_104_CLK/X
+ clkbuf_leaf_105_CLK/X
+ clkbuf_leaf_108_CLK/X
+ clkbuf_leaf_10_CLK/X
+ clkbuf_leaf_111_CLK/X
+ clkbuf_leaf_115_CLK/X
+ clkbuf_leaf_116_CLK/X
+ clkbuf_leaf_118_CLK/X
+ clkbuf_leaf_11_CLK/X
+ clkbuf_leaf_122_CLK/X
+ clkbuf_leaf_124_CLK/X
+ clkbuf_leaf_125_CLK/X
+ clkbuf_leaf_126_CLK/X
+ clkbuf_leaf_133_CLK/X
+ clkbuf_leaf_135_CLK/X
+ clkbuf_leaf_136_CLK/X
+ clkbuf_leaf_18_CLK/X
+ clkbuf_leaf_21_CLK/X
+ clkbuf_leaf_22_CLK/X
+ clkbuf_leaf_25_CLK/X
+ clkbuf_leaf_26_CLK/X
+ clkbuf_leaf_28_CLK/X
+ clkbuf_leaf_32_CLK/X
+ clkbuf_leaf_33_CLK/X
+ clkbuf_leaf_34_CLK/X
+ clkbuf_leaf_36_CLK/X
+ clkbuf_leaf_38_CLK/X
+ clkbuf_leaf_40_CLK/X
+ clkbuf_leaf_42_CLK/X
+ clkbuf_leaf_44_CLK/X
+ clkbuf_leaf_47_CLK/X
+ clkbuf_leaf_56_CLK/X
+ clkbuf_leaf_59_CLK/X
+ clkbuf_leaf_62_CLK/X
+ clkbuf_leaf_63_CLK/X
+ clkbuf_leaf_64_CLK/X
+ clkbuf_leaf_65_CLK/X
+ clkbuf_leaf_66_CLK/X
+ clkbuf_leaf_67_CLK/X
+ clkbuf_leaf_68_CLK/X
+ clkbuf_leaf_69_CLK/X
+ clkbuf_leaf_6_CLK/X
+ clkbuf_leaf_70_CLK/X
+ clkbuf_leaf_74_CLK/X
+ clkbuf_leaf_75_CLK/X
+ clkbuf_leaf_78_CLK/X
+ clkbuf_leaf_82_CLK/X
+ clkbuf_leaf_83_CLK/X
+ clkbuf_leaf_84_CLK/X
+ clkbuf_leaf_88_CLK/X
+ clkbuf_leaf_8_CLK/X
+ clkbuf_leaf_91_CLK/X
+ clkbuf_leaf_92_CLK/X
+ clkbuf_leaf_96_CLK/X
+ clkbuf_leaf_98_CLK/X
+ input1/X
+ input100/X
+ input101/X
+ input102/X
+ input103/X
+ input104/X
+ input105/X
+ input106/X
+ input107/X
+ input14/X
+ input15/X
+ input16/X
+ input17/X
+ input18/X
+ input2/X
+ input22/X
+ input3/X
+ input31/X
+ input34/X
+ input38/X
+ input39/X
+ input40/X
+ input41/X
+ input42/X
+ input43/X
+ input44/X
+ input45/X
+ input46/X
+ input47/X
+ input48/X
+ input49/X
+ input52/X
+ input53/X
+ input54/X
+ input55/X
+ input6/X
+ input63/X
+ input64/X
+ input66/X
+ input67/X
+ input68/X
+ input69/X
+ input70/X
+ input71/X
+ input72/X
+ input73/X
+ input74/X
+ input75/X
+ input76/X
+ input77/X
+ input78/X
+ input79/X
+ input8/X
+ input80/X
+ input81/X
+ input82/X
+ input83/X
+ input84/X
+ input85/X
+ input87/X
+ input88/X
+ input90/X
+ input94/X
+ input95/X
+ input98/X
+ input99/X
+ wire204/X
+ wire205/X
+ wire206/X
+ wire207/X
+ wire208/X
+ wire209/X
+ wire210/X
+ wire211/X
+ wire212/X
+ wire213/X
+ wire214/X
+ wire215/X
+ wire216/X
+ wire217/X
+ wire218/X
+ wire219/X
+ wire220/X
+ wire221/X
+ wire222/X
+ wire223/X
+
+===========================================================================
+max slew violation count 0
+max fanout violation count 0
+max cap violation count 0
+============================================================================
+
+===========================================================================
+check_setup -verbose -unconstrained_endpoints -multiple_clock -no_clock -no_input_delay -loops -generated_clocks
+===========================================================================

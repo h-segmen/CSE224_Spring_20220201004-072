@@ -1,0 +1,147 @@
+OpenROAD b16bda7e82721d10566ff7e2b68f1ff0be9f9e38 
+Features included (+) or not (-): +Charts +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+define_corners Typical
+read_liberty -corner Typical /home/segmen/.volare/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+Using 1e-12 for capacitance...
+Using 1e+03 for resistance...
+Using 1e-09 for time...
+Using 1e+00 for voltage...
+Using 1e-03 for current...
+Using 1e-09 for power...
+Using 1e-06 for distance...
+[INFO]: Reading ODB at '/openlane/designs/RegisterFile/runs/RUN_2025.06.01_18.15.32/results/floorplan/Lab4.odb'…
+Reading design constraints file at '/openlane/designs/RegisterFile/src/Lab4.sdc'…
+[WARNING STA-0441] set_input_delay relative to a clock defined on the same port/pin not allowed.
+[INFO]: Setting RC values...
+[INFO]: Setting signal min routing layer to: met1 and clock min routing layer to met3. 
+[INFO]: Setting signal max routing layer to: met5 and clock max routing layer to met5. 
+[INFO GPL-0002] DBU: 1000
+[INFO GPL-0003] SiteSize: (  0.460  2.720 ) um
+[INFO GPL-0004] CoreBBox: (  5.520 10.880 ) ( 2994.140 2986.560 ) um
+[INFO GPL-0006] NumInstances:            133947
+[INFO GPL-0007] NumPlaceInstances:         5171
+[INFO GPL-0008] NumFixedInstances:       128776
+[INFO GPL-0009] NumDummyInstances:            0
+[INFO GPL-0010] NumNets:                   5286
+[INFO GPL-0011] NumPins:                  18577
+[INFO GPL-0012] DieBBox:  (  0.000  0.000 ) ( 3000.000 3000.000 ) um
+[INFO GPL-0013] CoreBBox: (  5.520 10.880 ) ( 2994.140 2986.560 ) um
+[INFO GPL-0016] CoreArea:            8893176.762 um^2
+[INFO GPL-0017] NonPlaceInstsArea:   166599.782 um^2
+[INFO GPL-0018] PlaceInstsArea:       62348.547 um^2
+[INFO GPL-0019] Util:                     0.714 %
+[INFO GPL-0020] StdInstsArea:         62348.547 um^2
+[INFO GPL-0021] MacroInstsArea:           0.000 um^2
+[InitialPlace]  Iter: 1 CG residual: 1.81752050 HPWL: 650805480
+[InitialPlace]  Iter: 2 CG residual: 0.07190302 HPWL: 16428113678
+[InitialPlace]  Iter: 3 CG residual: 0.01673210 HPWL: 15536443518
+[InitialPlace]  Iter: 4 CG residual: 0.02068619 HPWL: 15182386978
+[InitialPlace]  Iter: 5 CG residual: 0.01725269 HPWL: 15050890987
+[InitialPlace]  Iter: 6 CG residual: 0.00006518 HPWL: 656341690
+[InitialPlace]  Iter: 7 CG residual: 0.00001706 HPWL: 418687520
+[InitialPlace]  Iter: 8 CG residual: 0.00017853 HPWL: 413632075
+[InitialPlace]  Iter: 9 CG residual: 0.00001369 HPWL: 409292711
+[InitialPlace]  Iter: 10 CG residual: 0.00033897 HPWL: 405162776
+[InitialPlace]  Iter: 11 CG residual: 0.00001691 HPWL: 401316123
+[InitialPlace]  Iter: 12 CG residual: 0.00024281 HPWL: 397842064
+[InitialPlace]  Iter: 13 CG residual: 0.00006881 HPWL: 394916724
+[InitialPlace]  Iter: 14 CG residual: 0.00036450 HPWL: 392393494
+[InitialPlace]  Iter: 15 CG residual: 0.00001498 HPWL: 390412972
+[InitialPlace]  Iter: 16 CG residual: 0.00020843 HPWL: 388616890
+[InitialPlace]  Iter: 17 CG residual: 0.00004570 HPWL: 387326319
+[InitialPlace]  Iter: 18 CG residual: 0.00003891 HPWL: 386149746
+[InitialPlace]  Iter: 19 CG residual: 0.00001191 HPWL: 385430188
+[InitialPlace]  Iter: 20 CG residual: 0.00004905 HPWL: 384688181
+[INFO GPL-0031] FillerInit:NumGCells:    255907
+[INFO GPL-0032] FillerInit:NumGNets:       5286
+[INFO GPL-0033] FillerInit:NumGPins:      18577
+[INFO GPL-0023] TargetDensity:            0.350
+[INFO GPL-0024] AvrgPlaceInstArea:       12.057 um^2
+[INFO GPL-0025] IdealBinArea:            34.450 um^2
+[INFO GPL-0026] IdealBinCnt:             258150
+[INFO GPL-0027] TotalBinArea:        8893176.762 um^2
+[INFO GPL-0028] BinCnt:       256    256
+[INFO GPL-0029] BinSize: ( 11.675 11.624 )
+[INFO GPL-0030] NumBins: 65536
+[NesterovSolve] Iter:    1 overflow: 0.944 HPWL: 392844433
+[NesterovSolve] Iter:   10 overflow: 0.816 HPWL: 467841423
+[NesterovSolve] Iter:   20 overflow: 0.810 HPWL: 464983464
+[NesterovSolve] Iter:   30 overflow: 0.806 HPWL: 470364901
+[NesterovSolve] Iter:   40 overflow: 0.809 HPWL: 473333098
+[NesterovSolve] Iter:   50 overflow: 0.805 HPWL: 476266018
+[NesterovSolve] Iter:   60 overflow: 0.802 HPWL: 477264095
+[NesterovSolve] Iter:   70 overflow: 0.805 HPWL: 477619594
+[NesterovSolve] Iter:   80 overflow: 0.803 HPWL: 478445314
+[NesterovSolve] Iter:   90 overflow: 0.802 HPWL: 478822018
+[NesterovSolve] Iter:  100 overflow: 0.803 HPWL: 478730579
+[NesterovSolve] Iter:  110 overflow: 0.801 HPWL: 480048909
+[NesterovSolve] Iter:  120 overflow: 0.801 HPWL: 479853256
+[NesterovSolve] Iter:  130 overflow: 0.802 HPWL: 479887915
+[NesterovSolve] Iter:  140 overflow: 0.802 HPWL: 480376378
+[NesterovSolve] Iter:  150 overflow: 0.801 HPWL: 479526860
+[NesterovSolve] Iter:  160 overflow: 0.800 HPWL: 479133931
+[NesterovSolve] Iter:  170 overflow: 0.799 HPWL: 479755628
+[NesterovSolve] Iter:  180 overflow: 0.797 HPWL: 481234174
+[NesterovSolve] Iter:  190 overflow: 0.793 HPWL: 482821702
+[NesterovSolve] Iter:  200 overflow: 0.788 HPWL: 484848324
+[INFO GPL-0100] worst slack -1.34e-09
+[INFO GPL-0103] Weighted 526 nets.
+[NesterovSolve] Iter:  210 overflow: 0.778 HPWL: 484144432
+[NesterovSolve] Iter:  220 overflow: 0.774 HPWL: 481940674
+[NesterovSolve] Iter:  230 overflow: 0.756 HPWL: 484590097
+[NesterovSolve] Iter:  240 overflow: 0.737 HPWL: 488867782
+[NesterovSolve] Iter:  250 overflow: 0.711 HPWL: 482335977
+[NesterovSolve] Iter:  260 overflow: 0.679 HPWL: 485270737
+[NesterovSolve] Iter:  270 overflow: 0.640 HPWL: 480638328
+[INFO GPL-0100] worst slack -3.82e-10
+[INFO GPL-0103] Weighted 514 nets.
+[NesterovSolve] Iter:  280 overflow: 0.597 HPWL: 482562450
+[NesterovSolve] Snapshot saved at iter = 279
+[NesterovSolve] Iter:  290 overflow: 0.549 HPWL: 481294954
+[NesterovSolve] Iter:  300 overflow: 0.504 HPWL: 480904149
+[INFO GPL-0100] worst slack -7.57e-10
+[INFO GPL-0103] Weighted 510 nets.
+[NesterovSolve] Iter:  310 overflow: 0.459 HPWL: 483569997
+[NesterovSolve] Iter:  320 overflow: 0.408 HPWL: 484158078
+[NesterovSolve] Iter:  330 overflow: 0.365 HPWL: 486178123
+[NesterovSolve] Iter:  340 overflow: 0.321 HPWL: 487518152
+[NesterovSolve] Iter:  350 overflow: 0.286 HPWL: 488050579
+[INFO GPL-0100] worst slack -5.71e-10
+[INFO GPL-0103] Weighted 511 nets.
+[NesterovSolve] Iter:  360 overflow: 0.256 HPWL: 489723574
+[NesterovSolve] Iter:  370 overflow: 0.221 HPWL: 490871130
+[INFO GPL-0100] worst slack -7.32e-10
+[INFO GPL-0103] Weighted 509 nets.
+[INFO GPL-0075] Routability numCall: 1 inflationIterCnt: 1 bloatIterCnt: 0
+[INFO GPL-0036] TileBBox: (    0    0 ) ( 6900 6900 ) DBU
+[INFO GPL-0038] TileCnt:     434  434
+[INFO GPL-0039] numRoutingLayers: 6
+[INFO GPL-0040] NumTiles: 188356
+[INFO GPL-0063] TotalRouteOverflowH2: 0.30000007152557373
+[INFO GPL-0064] TotalRouteOverflowV2: 13.533334732055664
+[INFO GPL-0065] OverflowTileCnt2: 83
+[INFO GPL-0066] 0.5%RC: 0.8758
+[INFO GPL-0067] 1.0%RC: 0.7755
+[INFO GPL-0068] 2.0%RC: 0.7211
+[INFO GPL-0069] 5.0%RC: 0.6884
+[INFO GPL-0070] 0.5rcK: 1
+[INFO GPL-0071] 1.0rcK: 1
+[INFO GPL-0072] 2.0rcK: 0
+[INFO GPL-0073] 5.0rcK: 0
+[INFO GPL-0074] FinalRC: 0.8257
+[INFO GPL-0077] FinalRC lower than targetRC(1), routability not needed.
+[NesterovSolve] Iter:  380 overflow: 0.193 HPWL: 494164985
+[NesterovSolve] Iter:  390 overflow: 0.174 HPWL: 500020895
+[NesterovSolve] Iter:  400 overflow: 0.154 HPWL: 501486733
+[INFO GPL-0100] worst slack -5.83e-10
+[INFO GPL-0103] Weighted 511 nets.
+[NesterovSolve] Iter:  410 overflow: 0.134 HPWL: 502747940
+[NesterovSolve] Iter:  420 overflow: 0.114 HPWL: 504303086
+[NesterovSolve] Finished with Overflow: 0.099898
+Setting global connections for newly added cells…
+Writing OpenROAD database to '/openlane/designs/RegisterFile/runs/RUN_2025.06.01_18.15.32/tmp/placement/7-global.odb'…
+Writing netlist to '/openlane/designs/RegisterFile/runs/RUN_2025.06.01_18.15.32/tmp/placement/7-global.nl.v'…
+Writing powered netlist to '/openlane/designs/RegisterFile/runs/RUN_2025.06.01_18.15.32/tmp/placement/7-global.pnl.v'…
+Writing layout to '/openlane/designs/RegisterFile/runs/RUN_2025.06.01_18.15.32/tmp/placement/7-global.def'…

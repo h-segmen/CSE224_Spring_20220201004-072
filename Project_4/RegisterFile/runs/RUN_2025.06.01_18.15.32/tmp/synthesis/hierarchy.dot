@@ -1,0 +1,31 @@
+digraph "Lab4" {
+label="Lab4";
+rankdir="LR";
+remincross=true;
+n1 [ shape=octagon, label="result", color="black", fontcolor="black" ];
+n2 [ shape=octagon, label="RD2", color="black", fontcolor="black" ];
+n3 [ shape=octagon, label="RD1", color="black", fontcolor="black" ];
+n4 [ shape=octagon, label="opcode", color="black", fontcolor="black" ];
+n5 [ shape=octagon, label="B", color="black", fontcolor="black" ];
+n6 [ shape=octagon, label="A", color="black", fontcolor="black" ];
+n7 [ shape=octagon, label="WD3", color="black", fontcolor="black" ];
+n8 [ shape=octagon, label="A3", color="black", fontcolor="black" ];
+n9 [ shape=octagon, label="A2", color="black", fontcolor="black" ];
+n10 [ shape=octagon, label="A1", color="black", fontcolor="black" ];
+n11 [ shape=octagon, label="WE3", color="black", fontcolor="black" ];
+n12 [ shape=octagon, label="CLK", color="black", fontcolor="black" ];
+c13 [ shape=record, label="{{<p6> A|<p5> B|<p4> opcode}|alu\nALU|{<p1> result}}",  ];
+c14 [ shape=record, label="{{<p10> A1|<p9> A2|<p8> A3|<p12> CLK|<p7> WD3|<p11> WE3}|rf\nRegisterFile|{<p3> RD1|<p2> RD2}}",  ];
+c13:p1:e -> n1:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+n10:e -> c14:p10:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+n11:e -> c14:p11:w [color="black", fontcolor="black", label=""];
+n12:e -> c14:p12:w [color="black", fontcolor="black", label=""];
+c14:p2:e -> n2:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+c14:p3:e -> n3:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+n4:e -> c13:p4:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+n5:e -> c13:p5:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+n6:e -> c13:p6:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+n7:e -> c14:p7:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+n8:e -> c14:p8:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+n9:e -> c14:p9:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+}

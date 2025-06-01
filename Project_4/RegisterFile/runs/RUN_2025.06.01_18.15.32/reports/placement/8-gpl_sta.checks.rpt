@@ -1,0 +1,241 @@
+
+===========================================================================
+report_checks -unconstrained
+===========================================================================
+======================= Typical Corner ===================================
+
+Startpoint: B[0] (input port clocked by core_clock)
+Endpoint: result[31] (output port clocked by core_clock)
+Path Group: core_clock
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          2.50    2.50 v input external delay
+     3    0.04    0.00    0.00    2.50 v B[0] (in)
+                                         B[0] (net)
+                  0.01    0.01    2.51 v _5288_/A (sky130_fd_sc_hd__or4_2)
+     1    0.00    0.10    0.64    3.15 v _5288_/X (sky130_fd_sc_hd__or4_2)
+                                         _2197_ (net)
+                  0.10    0.00    3.15 v _5289_/A (sky130_fd_sc_hd__buf_1)
+    10    0.03    0.18    0.23    3.38 v _5289_/X (sky130_fd_sc_hd__buf_1)
+                                         _2198_ (net)
+                  0.18    0.00    3.38 v _5595_/B (sky130_fd_sc_hd__or3_2)
+     4    0.01    0.10    0.53    3.91 v _5595_/X (sky130_fd_sc_hd__or3_2)
+                                         _2492_ (net)
+                  0.10    0.00    3.91 v _5596_/A (sky130_fd_sc_hd__buf_1)
+    10    0.04    0.22    0.26    4.17 v _5596_/X (sky130_fd_sc_hd__buf_1)
+                                         _2493_ (net)
+                  0.22    0.00    4.18 v _5796_/D (sky130_fd_sc_hd__or4_2)
+     3    0.01    0.13    0.64    4.81 v _5796_/X (sky130_fd_sc_hd__or4_2)
+                                         _2681_ (net)
+                  0.13    0.00    4.81 v _5818_/C (sky130_fd_sc_hd__or3_2)
+     3    0.01    0.10    0.46    5.28 v _5818_/X (sky130_fd_sc_hd__or3_2)
+                                         _2701_ (net)
+                  0.10    0.00    5.28 v _5832_/A2 (sky130_fd_sc_hd__o21a_2)
+     1    0.01    0.05    0.23    5.50 v _5832_/X (sky130_fd_sc_hd__o21a_2)
+                                         _2714_ (net)
+                  0.05    0.00    5.50 v _5833_/B (sky130_fd_sc_hd__xnor2_2)
+     3    0.02    0.30    0.26    5.76 ^ _5833_/Y (sky130_fd_sc_hd__xnor2_2)
+                                         _2715_ (net)
+                  0.30    0.00    5.76 ^ _5834_/B (sky130_fd_sc_hd__xor2_2)
+     2    0.01    0.18    0.22    5.99 ^ _5834_/X (sky130_fd_sc_hd__xor2_2)
+                                         _2716_ (net)
+                  0.18    0.00    5.99 ^ _5844_/B_N (sky130_fd_sc_hd__or2b_2)
+     2    0.01    0.06    0.32    6.31 v _5844_/X (sky130_fd_sc_hd__or2b_2)
+                                         _2725_ (net)
+                  0.06    0.00    6.31 v _5845_/C (sky130_fd_sc_hd__or3_2)
+     1    0.00    0.08    0.41    6.72 v _5845_/X (sky130_fd_sc_hd__or3_2)
+                                         _2726_ (net)
+                  0.08    0.00    6.72 v _5846_/B1 (sky130_fd_sc_hd__a21o_2)
+     2    0.01    0.05    0.21    6.93 v _5846_/X (sky130_fd_sc_hd__a21o_2)
+                                         _2727_ (net)
+                  0.05    0.00    6.93 v _5856_/A1 (sky130_fd_sc_hd__a21oi_2)
+     3    0.01    0.19    0.19    7.13 ^ _5856_/Y (sky130_fd_sc_hd__a21oi_2)
+                                         _2737_ (net)
+                  0.19    0.00    7.13 ^ _5893_/A1 (sky130_fd_sc_hd__o21ba_2)
+     2    0.01    0.08    0.21    7.33 ^ _5893_/X (sky130_fd_sc_hd__o21ba_2)
+                                         _2772_ (net)
+                  0.08    0.00    7.33 ^ _5896_/B2 (sky130_fd_sc_hd__a22o_2)
+     1    0.01    0.07    0.16    7.50 ^ _5896_/X (sky130_fd_sc_hd__a22o_2)
+                                         _2774_ (net)
+                  0.07    0.00    7.50 ^ _5900_/A (sky130_fd_sc_hd__xnor2_2)
+     1    0.01    0.05    0.07    7.57 v _5900_/Y (sky130_fd_sc_hd__xnor2_2)
+                                         _2778_ (net)
+                  0.05    0.00    7.57 v _5907_/A2 (sky130_fd_sc_hd__o21ai_2)
+     1    0.25    2.66    1.81    9.38 ^ _5907_/Y (sky130_fd_sc_hd__o21ai_2)
+                                         result[31] (net)
+                  2.73    0.36    9.73 ^ result[31] (out)
+                                  9.73   data arrival time
+
+                  0.00   10.00   10.00   clock core_clock (rise edge)
+                          0.00   10.00   clock network delay (ideal)
+                          0.00   10.00   clock reconvergence pessimism
+                         -2.50    7.50   output external delay
+                                  7.50   data required time
+-----------------------------------------------------------------------------
+                                  7.50   data required time
+                                 -9.73   data arrival time
+-----------------------------------------------------------------------------
+                                 -2.23   slack (VIOLATED)
+
+
+
+
+===========================================================================
+report_checks --slack_max -0.01
+============================================================================
+======================= Typical Corner ===================================
+
+Startpoint: B[0] (input port clocked by core_clock)
+Endpoint: result[31] (output port clocked by core_clock)
+Path Group: core_clock
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          2.50    2.50 v input external delay
+     3    0.04    0.00    0.00    2.50 v B[0] (in)
+                                         B[0] (net)
+                  0.01    0.01    2.51 v _5288_/A (sky130_fd_sc_hd__or4_2)
+     1    0.00    0.10    0.64    3.15 v _5288_/X (sky130_fd_sc_hd__or4_2)
+                                         _2197_ (net)
+                  0.10    0.00    3.15 v _5289_/A (sky130_fd_sc_hd__buf_1)
+    10    0.03    0.18    0.23    3.38 v _5289_/X (sky130_fd_sc_hd__buf_1)
+                                         _2198_ (net)
+                  0.18    0.00    3.38 v _5595_/B (sky130_fd_sc_hd__or3_2)
+     4    0.01    0.10    0.53    3.91 v _5595_/X (sky130_fd_sc_hd__or3_2)
+                                         _2492_ (net)
+                  0.10    0.00    3.91 v _5596_/A (sky130_fd_sc_hd__buf_1)
+    10    0.04    0.22    0.26    4.17 v _5596_/X (sky130_fd_sc_hd__buf_1)
+                                         _2493_ (net)
+                  0.22    0.00    4.18 v _5796_/D (sky130_fd_sc_hd__or4_2)
+     3    0.01    0.13    0.64    4.81 v _5796_/X (sky130_fd_sc_hd__or4_2)
+                                         _2681_ (net)
+                  0.13    0.00    4.81 v _5818_/C (sky130_fd_sc_hd__or3_2)
+     3    0.01    0.10    0.46    5.28 v _5818_/X (sky130_fd_sc_hd__or3_2)
+                                         _2701_ (net)
+                  0.10    0.00    5.28 v _5832_/A2 (sky130_fd_sc_hd__o21a_2)
+     1    0.01    0.05    0.23    5.50 v _5832_/X (sky130_fd_sc_hd__o21a_2)
+                                         _2714_ (net)
+                  0.05    0.00    5.50 v _5833_/B (sky130_fd_sc_hd__xnor2_2)
+     3    0.02    0.30    0.26    5.76 ^ _5833_/Y (sky130_fd_sc_hd__xnor2_2)
+                                         _2715_ (net)
+                  0.30    0.00    5.76 ^ _5834_/B (sky130_fd_sc_hd__xor2_2)
+     2    0.01    0.18    0.22    5.99 ^ _5834_/X (sky130_fd_sc_hd__xor2_2)
+                                         _2716_ (net)
+                  0.18    0.00    5.99 ^ _5844_/B_N (sky130_fd_sc_hd__or2b_2)
+     2    0.01    0.06    0.32    6.31 v _5844_/X (sky130_fd_sc_hd__or2b_2)
+                                         _2725_ (net)
+                  0.06    0.00    6.31 v _5845_/C (sky130_fd_sc_hd__or3_2)
+     1    0.00    0.08    0.41    6.72 v _5845_/X (sky130_fd_sc_hd__or3_2)
+                                         _2726_ (net)
+                  0.08    0.00    6.72 v _5846_/B1 (sky130_fd_sc_hd__a21o_2)
+     2    0.01    0.05    0.21    6.93 v _5846_/X (sky130_fd_sc_hd__a21o_2)
+                                         _2727_ (net)
+                  0.05    0.00    6.93 v _5856_/A1 (sky130_fd_sc_hd__a21oi_2)
+     3    0.01    0.19    0.19    7.13 ^ _5856_/Y (sky130_fd_sc_hd__a21oi_2)
+                                         _2737_ (net)
+                  0.19    0.00    7.13 ^ _5893_/A1 (sky130_fd_sc_hd__o21ba_2)
+     2    0.01    0.08    0.21    7.33 ^ _5893_/X (sky130_fd_sc_hd__o21ba_2)
+                                         _2772_ (net)
+                  0.08    0.00    7.33 ^ _5896_/B2 (sky130_fd_sc_hd__a22o_2)
+     1    0.01    0.07    0.16    7.50 ^ _5896_/X (sky130_fd_sc_hd__a22o_2)
+                                         _2774_ (net)
+                  0.07    0.00    7.50 ^ _5900_/A (sky130_fd_sc_hd__xnor2_2)
+     1    0.01    0.05    0.07    7.57 v _5900_/Y (sky130_fd_sc_hd__xnor2_2)
+                                         _2778_ (net)
+                  0.05    0.00    7.57 v _5907_/A2 (sky130_fd_sc_hd__o21ai_2)
+     1    0.25    2.66    1.81    9.38 ^ _5907_/Y (sky130_fd_sc_hd__o21ai_2)
+                                         result[31] (net)
+                  2.73    0.36    9.73 ^ result[31] (out)
+                                  9.73   data arrival time
+
+                  0.00   10.00   10.00   clock core_clock (rise edge)
+                          0.00   10.00   clock network delay (ideal)
+                          0.00   10.00   clock reconvergence pessimism
+                         -2.50    7.50   output external delay
+                                  7.50   data required time
+-----------------------------------------------------------------------------
+                                  7.50   data required time
+                                 -9.73   data arrival time
+-----------------------------------------------------------------------------
+                                 -2.23   slack (VIOLATED)
+
+
+
+
+===========================================================================
+ report_check_types -max_slew -max_cap -max_fanout -violators
+============================================================================
+======================= Typical Corner ===================================
+
+max slew
+
+Pin                                    Limit    Slew   Slack
+------------------------------------------------------------
+_5336_/Y                                1.50    3.06   -1.56 (VIOLATED)
+_5450_/Y                                1.50    2.99   -1.49 (VIOLATED)
+_5843_/Y                                1.50    2.84   -1.34 (VIOLATED)
+_5831_/Y                                1.50    2.80   -1.30 (VIOLATED)
+_5785_/Y                                1.50    2.73   -1.23 (VIOLATED)
+_5594_/Y                                1.50    2.71   -1.21 (VIOLATED)
+_5471_/Y                                1.50    2.70   -1.20 (VIOLATED)
+_5756_/Y                                1.50    2.67   -1.17 (VIOLATED)
+_5907_/Y                                1.50    2.66   -1.16 (VIOLATED)
+_5486_/Y                                1.50    2.65   -1.15 (VIOLATED)
+_5659_/Y                                1.50    2.63   -1.13 (VIOLATED)
+_5817_/Y                                1.50    2.50   -1.00 (VIOLATED)
+_5644_/Y                                1.50    2.48   -0.99 (VIOLATED)
+_5728_/Y                                1.50    2.46   -0.96 (VIOLATED)
+_5580_/Y                                1.50    2.43   -0.93 (VIOLATED)
+_5505_/Y                                1.96    2.81   -0.86 (VIOLATED)
+_5772_/Y                                1.96    2.64   -0.68 (VIOLATED)
+
+max capacitance
+
+Pin                                    Limit     Cap   Slack
+------------------------------------------------------------
+_5336_/Y                                0.13    0.27   -0.14 (VIOLATED)
+_5450_/Y                                0.13    0.26   -0.13 (VIOLATED)
+_5471_/Y                                0.14    0.26   -0.12 (VIOLATED)
+_5843_/Y                                0.13    0.24   -0.12 (VIOLATED)
+_5907_/Y                                0.14    0.25   -0.11 (VIOLATED)
+_5486_/Y                                0.14    0.25   -0.11 (VIOLATED)
+_5831_/Y                                0.13    0.24   -0.11 (VIOLATED)
+_5594_/Y                                0.13    0.24   -0.11 (VIOLATED)
+_5785_/Y                                0.13    0.23   -0.11 (VIOLATED)
+_5756_/Y                                0.13    0.23   -0.10 (VIOLATED)
+_5659_/Y                                0.13    0.23   -0.10 (VIOLATED)
+_5817_/Y                                0.14    0.24   -0.10 (VIOLATED)
+_5644_/Y                                0.13    0.23   -0.10 (VIOLATED)
+_5728_/Y                                0.14    0.23   -0.09 (VIOLATED)
+_5580_/Y                                0.14    0.23   -0.09 (VIOLATED)
+_5505_/Y                                0.17    0.25   -0.08 (VIOLATED)
+_5772_/Y                                0.17    0.23   -0.06 (VIOLATED)
+
+
+max slew violations count Typical: 17
+max fanout violations count Typical: 0
+max cap violations count Typical: 17
+
+===========================================================================
+report_parasitic_annotation -report_unannotated
+============================================================================
+Found 1 unannotated drivers.
+ CLK
+Found 0 partially unannotated drivers.
+
+===========================================================================
+max slew violation count 17
+max fanout violation count 0
+max cap violation count 17
+============================================================================
+
+===========================================================================
+check_setup -verbose -unconstrained_endpoints -multiple_clock -no_clock -no_input_delay -loops -generated_clocks
+===========================================================================
