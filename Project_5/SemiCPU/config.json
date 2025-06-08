@@ -1,0 +1,22 @@
+{
+  "DESIGN_NAME": "SemiCPU",
+  "VERILOG_FILES": [
+    "dir::src/ALU.v",
+    "dir::src/InstructionDecoder.v",
+    "dir::src/InstructionMemory.v",
+    "dir::src/ProgramCounter.v",
+    "dir::src/RegisterFile.v",
+    "dir::src/SemiCPU.v"
+  ],
+  "CLOCK_PORT": "CLK",
+  "CLOCK_PERIOD": 10,
+  "FP_SIZING": "absolute",
+  "DIE_AREA": "0 0 3000 3000",
+  "FP_CORE_UTIL": 0.3,
+  "PL_TARGET_DENSITY": 0.35,
+  "PL_RANDOM_GLB_PLACEMENT": false,
+  "PIN_ORDER_CFG": "dir::src/pin_order.cfg",
+  "PNR_SDC_FILE": "dir::src/SemiCPU.sdc",
+  "SIGNOFF_SDC_FILE": "dir::src/SemiCPU.sdc"
+}
+
